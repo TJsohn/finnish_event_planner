@@ -1,0 +1,1 @@
+# Finnish Event Planner - REACT25K Team Project 1 Group 3
