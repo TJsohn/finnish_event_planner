@@ -1,14 +1,26 @@
 // import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router';
+
+import EventList from './pages/EventList/EventList';
+import About from './pages/About/About';
+import AddEventForm from './pages/AddEventForm/AddEventForm';
+import Root from './pages/Root';
 import './App.css'
 
 const App = () => {
 
 
   return (
-    <>
-      <h1>Welcome to the Finnish Event Planner App!</h1>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Root />}>
+          <Route index element={<EventList />} />
+          <Route path="/add" element={<AddEventForm />} />
+          <Route path="/about" element={<About />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
