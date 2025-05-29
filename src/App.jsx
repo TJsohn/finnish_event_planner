@@ -1,15 +1,14 @@
 // import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './pages/Home/Home';
-import EventList from './pages/EventList/EventList';
-import About from './pages/About/About';
-import AddEventForm from './pages/AddEventForm/AddEventForm';
-import Root from './pages/Root';
-import './App.css'
+import Home from "./pages/Home/Home";
+import EventList from "./pages/EventList/EventList";
+import About from "./pages/About/About";
+import AddEventForm from "./pages/AddEventForm/AddEventForm";
+import Root from "./pages/Root";
+import "./App.css";
 
 const App = () => {
-
   return (
     <BrowserRouter>
       <Routes>
@@ -20,6 +19,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
+      x
     </BrowserRouter>
   );
 };
