@@ -1,4 +1,4 @@
-import "./AddEventForm/AddEventForm.module.css";
+import styles  from "./AddEventForm.module.css";
 
 const AddEventForm = () => {
   return (
