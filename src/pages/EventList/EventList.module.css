@@ -1,0 +1,12 @@
+.heroBannerWrapper {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.categoryListContainer {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
