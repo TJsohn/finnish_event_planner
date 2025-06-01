@@ -10,3 +10,7 @@
   gap: 40px;
   flex-wrap: wrap;
 }
+.eventCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

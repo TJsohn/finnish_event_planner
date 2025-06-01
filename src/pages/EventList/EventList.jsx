@@ -1,8 +1,11 @@
 import React from "react";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import styles from "./EventList.module.css";
+import EventCard from "../../components/EventCard/EventCard";
 
 function EventList() {
+  // filtering
+
   return (
     <>
       <div className={styles.heroBannerWrapper}>
@@ -13,20 +16,57 @@ function EventList() {
           <input type="text" name="search" />
         </div>
       </div>
-
       <div>
         <h2>Categories</h2>
         <div className={styles.categoryListContainer}>
-          <CategoryItem imgUrl="" altText="" category="Culture" />
-          <CategoryItem imgUrl="" altText="" category="Education" />
-          <CategoryItem imgUrl="" altText="" category="Sport" />
-          <CategoryItem imgUrl="" altText="" category="Technology" />
-          <CategoryItem imgUrl="" altText="" category="Entertainment" />
-          <CategoryItem imgUrl="" altText="" category="Travel" />
+          <CategoryItem category="Culture" />
+          <CategoryItem category="Education" />
+          <CategoryItem category="Sport" />
+          <CategoryItem category="Technology" />
+          <CategoryItem category="Entertainment" />
+          <CategoryItem category="Travel" />
         </div>
 
         <div>
           <h2>Events</h2>
+          <div className={styles.eventCardContainer}>
+            <EventCard
+              location="Espoo"
+              title="Event1"
+              date="2020-01-10"
+              category="education"
+            />
+            <EventCard
+              location="helsinki"
+              title="Event2"
+              date="2020-01-10"
+              category="sport"
+            />
+            <EventCard
+              location="Espoo"
+              title="Event3"
+              date="2020-01-10"
+              category="travel"
+            />
+            <EventCard
+              location="vantaa"
+              title="Event4"
+              date="2020-01-10"
+              category="technology"
+            />
+            <EventCard
+              location="vantaa"
+              title="Event5"
+              category="entertainment"
+              date="2020-01-10"
+            />
+            <EventCard
+              location="espoo"
+              title="Event6"
+              date="2020-01-10"
+              category="culture"
+            />
+          </div>
         </div>
       </div>
     </>
