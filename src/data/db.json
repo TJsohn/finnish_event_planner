@@ -1,0 +1,65 @@
+{
+"events": [
+    {
+      "title": "Laravel Meetup",
+      "location": "San Francisco, CA",
+      "date": "2025-07-10",
+      "description": "A gathering of Laravel developers to discuss new features."
+    },
+    {
+      "title": "Tech Conference 2025",
+      "location": "New York, NY",
+      "date": "2025-08-15",
+      "description": "Annual tech conference covering web development trends."
+    },
+    {
+      "title": "Startup Pitch Night",
+      "location": "Austin, TX",
+      "date": "2025-09-05",
+      "description": "Early-stage startups pitch to a panel of investors."
+    },
+    {
+      "title": "AI & Machine Learning Expo",
+      "location": "Boston, MA",
+      "date": "2025-10-20",
+      "description": "Exhibition and talks on the latest in AI technology."
+    },
+    {
+      "title": "Remote Work Summit",
+      "location": "Online",
+      "date": "2025-11-02",
+      "description": "A virtual event focused on remote team strategies."
+    },
+    {
+      "title": "E-commerce Workshop",
+      "location": "Chicago, IL",
+      "date": "2025-07-22",
+      "description": "Hands-on workshop on building e-commerce platforms."
+    },
+    {
+      "title": "Women in Tech Panel",
+      "location": "Seattle, WA",
+      "date": "2025-09-12",
+      "description": "Panel discussion featuring leading women in technology."
+    },
+    {
+      "title": "Cybersecurity Bootcamp",
+      "location": "Denver, CO",
+      "date": "2025-08-28",
+      "description": "Bootcamp training on the fundamentals of cybersecurity."
+    },
+    {
+      "title": "Product Management 101",
+      "location": "Los Angeles, CA",
+      "date": "2025-10-05",
+      "description": "Introductory course on product management skills."
+    },
+    {
+      "title": "DevOps Best Practices",
+      "location": "Portland, OR",
+      "date": "2025-11-15",
+      "description": "Event focused on continuous integration and deployment workflows."
+    }
+  ]
+}
+  
