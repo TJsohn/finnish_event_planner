@@ -1,59 +1,50 @@
 import { NavLink, Link } from "react-router";
 import styles from "./Header.module.css";
 
-const Header = ({ name }) => {
+import flower from "../../assets/images/logo-flower.svg";
+import textLogo from "../../assets/images/text-logo-static.svg";
+
+const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Link to="/">
-          <h2>{name}</h2>
+        <Link to="/" className={styles.logoLink}>
+          <img
+            src={flower}
+            alt="Freydis flower"
+            className={styles.logoFlower}
+          />
+          <img
+            src={textLogo}
+            alt="Freydis text"
+            className={styles.logoText}
+          />
         </Link>
       </div>
-      <nav>
+
+      <nav className={styles.centerNav}>
         <ul className={styles.navList}>
           <li>
-            <NavLink
-              to="/"
-              end
-              className={({ isActive }) =>
-                isActive ? styles.active : undefined
-              }
-            >
-              Home
-            </NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/events"
-              className={({ isActive }) =>
-                isActive ? styles.active : undefined
-              }
-            >
-              Events
-            </NavLink>
+            <NavLink to="/events">Events</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/add"
-              className={({ isActive }) =>
-                isActive ? styles.active : undefined
-              }
-            >
-              Add Event
-            </NavLink>
+            <NavLink to="/add">Add Event</NavLink>
           </li>
           <li>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? styles.active : undefined
-              }
-            >
-              About
-            </NavLink>
+            <NavLink to="/about">About</NavLink>
           </li>
         </ul>
       </nav>
+
+      <div className={styles.authButtons}>
+        <Link to="/login">Login</Link>
+        <Link to="/signup" className={styles.signup}>
+          Sign Up
+        </Link>
+      </div>
     </header>
   );
 };

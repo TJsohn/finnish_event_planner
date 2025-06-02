@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router";
+import useSpinningFavicon from './hooks/useSpinningFavicon';
 
 import Home from "./pages/Home/Home";
 import EventList from "./pages/EventList/EventList";
@@ -10,6 +11,8 @@ import "./App.css";
 import EventDetail from "./pages/EventDetail/EventDetail";
 
 const App = () => {
+  useSpinningFavicon();
+  
   return (
     <BrowserRouter>
       <Routes>

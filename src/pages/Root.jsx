@@ -5,11 +5,11 @@ import { Outlet } from "react-router";
 const Root = () => {
     return (
       <div className="app-layout">
-        <Header name="Finnish Event Planner" />
+        <Header />
         <main>
           <Outlet />
         </main>
-        <Footer year={2025} />
+        <Footer />
       </div>
     );
   };
