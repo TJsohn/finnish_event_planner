@@ -25,3 +25,26 @@
     background-color: #f9f9f9;
   }
 } */
+
+/* index.css */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background-color: black;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

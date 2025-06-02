@@ -1,0 +1,84 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Laravel Workshop",
+      "location": "Helsinki, Uusimaa",
+      "address": "Kamppikatu 3, Helsinki",
+      "date": "2025-07-12",
+      "description": "A hands-on Laravel 12 workshop for developers."
+    },
+    {
+      "id": 2,
+      "title": "Tech Startups Expo",
+      "location": "Espoo, Uusimaa",
+      "address": "Otaniemi 1, Espoo",
+      "date": "2025-08-05",
+      "description": "Showcase of the most promising tech startups in Finland."
+    },
+    {
+      "id": 3,
+      "title": "AI in Healthcare Summit",
+      "location": "Vantaa, Uusimaa",
+      "address": "Tikkurilantie 45, Vantaa",
+      "date": "2025-09-01",
+      "description": "Exploring AI applications in modern healthcare systems."
+    },
+    {
+      "id": 4,
+      "title": "Green Tech Innovations",
+      "location": "Helsinki, Uusimaa",
+      "address": "Sörnäisten rantatie 5, Helsinki",
+      "date": "2025-10-10",
+      "description": "A sustainability-focused event showcasing eco-technology."
+    },
+    {
+      "id": 5,
+      "title": "Women in AI Conference",
+      "location": "Espoo, Uusimaa",
+      "address": "Keilaranta 12, Espoo",
+      "date": "2025-08-20",
+      "description": "Leadership, research, and inclusion in AI fields."
+    },
+    {
+      "id": 6,
+      "title": "Cybersecurity Essentials Bootcamp",
+      "location": "Helsinki, Uusimaa",
+      "address": "Lautatarhankatu 8, Helsinki",
+      "date": "2025-07-28",
+      "description": "Learn practical cybersecurity skills in two days."
+    },
+    {
+      "id": 7,
+      "title": "Remote Work Culture Meetup",
+      "location": "Vantaa, Uusimaa",
+      "address": "Hiekkaharjuntie 3, Vantaa",
+      "date": "2025-09-18",
+      "description": "Discussing tools and strategies for remote teams."
+    },
+    {
+      "id": 8,
+      "title": "SaaS Growth Tactics",
+      "location": "Helsinki, Uusimaa",
+      "address": "Annankatu 34, Helsinki",
+      "date": "2025-10-02",
+      "description": "Marketing and scaling techniques for SaaS founders."
+    },
+    {
+      "id": 9,
+      "title": "Creative Coding Jam",
+      "location": "Espoo, Uusimaa",
+      "address": "Innopoli 2, Tekniikantie 14, Espoo",
+      "date": "2025-11-01",
+      "description": "A live coding and art event for creative developers."
+    },
+    {
+      "id": 10,
+      "title": "Ethical Hacking Night",
+      "location": "Helsinki, Uusimaa",
+      "address": "Kalevankatu 31, Helsinki",
+      "date": "2025-11-20",
+      "description": "Pen testing, hacking tools, and CTF competitions."
+    }
+  ]
+}

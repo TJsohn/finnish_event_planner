@@ -1,30 +1,137 @@
 .header {
-
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background-color: #26233c;
   padding: 1rem 2rem;
-  background-color: #809D87;
+  font-family: 'Poppins', sans-serif;
   color: white;
+  position: relative;
+  height: 58px;
+  overflow: visible;
 }
 
-.logo a {
-  color: white;
-  text-decoration: none;
+.logo,
+.centerNav,
+.authButtons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  justify-content: flex-start;
+  min-width: 180px;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logoFlower {
+  width: auto;
+  height: 60px;
+  display: block;
+  margin-right: 0.5rem;
+  animation: spin 20s linear infinite;
+}
+
+.logoText {
+  width: auto;
+  height: 40px;
+  display: block;
+}
+
+.centerNav {
+  justify-content: center;
 }
 
 .navList {
-  list-style: none;
   display: flex;
-  gap: 1.5rem;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.navList a {
-  color: white;
+.navList li {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navList li a {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 36px;
+  height: 100%;
   text-decoration: none;
-  font-weight: bold;
+  color: #ffffffcc;
+  font-weight: 300;
+  font-size: 1rem;
+  transition: color 0.15s ease;
 }
 
-.active {
-  border-bottom: 2px solid #61dafb;
+.navList li a::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0.6);
+  width: 60px;
+  height: 8px;
+  background-color: #ffe600;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.navList li a:hover::after,
+.navList li a:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navList li a:hover,
+.navList li a:focus {
+  color: #fff;
+}
+
+.authButtons {
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.authButtons a {
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.authButtons .signup {
+  background-color: #ffe600;
+  color: #26233c;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.authButtons .signup:hover {
+  background-color: #ffef5e;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
