@@ -1,65 +1,83 @@
-{
-"events": [
-    {
-      "title": "Laravel Meetup",
-      "location": "San Francisco, CA",
-      "date": "2025-07-10",
-      "description": "A gathering of Laravel developers to discuss new features."
-    },
-    {
-      "title": "Tech Conference 2025",
-      "location": "New York, NY",
-      "date": "2025-08-15",
-      "description": "Annual tech conference covering web development trends."
-    },
-    {
-      "title": "Startup Pitch Night",
-      "location": "Austin, TX",
-      "date": "2025-09-05",
-      "description": "Early-stage startups pitch to a panel of investors."
-    },
-    {
-      "title": "AI & Machine Learning Expo",
-      "location": "Boston, MA",
-      "date": "2025-10-20",
-      "description": "Exhibition and talks on the latest in AI technology."
-    },
-    {
-      "title": "Remote Work Summit",
-      "location": "Online",
-      "date": "2025-11-02",
-      "description": "A virtual event focused on remote team strategies."
-    },
-    {
-      "title": "E-commerce Workshop",
-      "location": "Chicago, IL",
-      "date": "2025-07-22",
-      "description": "Hands-on workshop on building e-commerce platforms."
-    },
-    {
-      "title": "Women in Tech Panel",
-      "location": "Seattle, WA",
-      "date": "2025-09-12",
-      "description": "Panel discussion featuring leading women in technology."
-    },
-    {
-      "title": "Cybersecurity Bootcamp",
-      "location": "Denver, CO",
-      "date": "2025-08-28",
-      "description": "Bootcamp training on the fundamentals of cybersecurity."
-    },
-    {
-      "title": "Product Management 101",
-      "location": "Los Angeles, CA",
-      "date": "2025-10-05",
-      "description": "Introductory course on product management skills."
-    },
-    {
-      "title": "DevOps Best Practices",
-      "location": "Portland, OR",
-      "date": "2025-11-15",
-      "description": "Event focused on continuous integration and deployment workflows."
-    }
-  ]
+{"events":[
+  {
+    "id": 1,
+    "title": "Laravel Meetup",
+    "location": "Helsinki, Finland",
+    "address": "Mannerheimintie 10, Helsinki",
+    "date": "2025-07-10",
+    "description": "A gathering of Laravel developers to discuss new features."
+  },
+  {
+    "id": 2,
+    "title": "Tech Conference 2025",
+    "location": "Espoo, Finland",
+    "address": "Otaniementie 5, Espoo",
+    "date": "2025-08-15",
+    "description": "Annual tech conference covering web development trends."
+  },
+  {
+    "id": 3,
+    "title": "Startup Pitch Night",
+    "location": "Tampere, Finland",
+    "address": "Keskustori 3, Tampere",
+    "date": "2025-09-05",
+    "description": "Early-stage startups pitch to a panel of investors."
+  },
+  {
+    "id": 4,
+    "title": "AI & Machine Learning Expo",
+    "location": "Oulu, Finland",
+    "address": "Torikatu 18, Oulu",
+    "date": "2025-10-20",
+    "description": "Exhibition and talks on the latest in AI technology."
+  },
+  {
+    "id": 5,
+    "title": "Remote Work Summit",
+    "location": "Turku, Finland",
+    "address": "Aurakatu 2, Turku",
+    "date": "2025-11-02",
+    "description": "A virtual event focused on remote team strategies."
+  },
+  {
+    "id": 6,
+    "title": "E-commerce Workshop",
+    "location": "Jyväskylä, Finland",
+    "address": "Kauppakatu 5, Jyväskylä",
+    "date": "2025-07-22",
+    "description": "Hands-on workshop on building e-commerce platforms."
+  },
+  {
+    "id": 7,
+    "title": "Women in Tech Panel",
+    "location": "Lahti, Finland",
+    "address": "Aleksanterinkatu 20, Lahti",
+    "date": "2025-09-12",
+    "description": "Panel discussion featuring leading women in technology."
+  },
+  {
+    "id": 8,
+    "title": "Cybersecurity Bootcamp",
+    "location": "Kuopio, Finland",
+    "address": "Puijonkatu 16, Kuopio",
+    "date": "2025-08-28",
+    "description": "Bootcamp training on the fundamentals of cybersecurity."
+  },
+  {
+    "id": 9,
+    "title": "Product Management 101",
+    "location": "Vaasa, Finland",
+    "address": "Hovioikeudenpuistikko 15, Vaasa",
+    "date": "2025-10-05",
+    "description": "Introductory course on product management skills."
+  },
+  {
+    "id": 10,
+    "title": "DevOps Best Practices",
+    "location": "Joensuu, Finland",
+    "address": "Siltakatu 8, Joensuu",
+    "date": "2025-11-15",
+    "description": "Event focused on continuous integration and deployment workflows."
+  }
+]
 }
-  
