@@ -1,0 +1,14 @@
+.categoryContainer img {
+  background-color: coral;
+  border-radius: 50%;
+  width: 80px;
+  aspect-ratio: 1/1;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
