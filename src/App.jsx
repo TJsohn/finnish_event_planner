@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router";
+import useSpinningFavicon from './hooks/useSpinningFavicon';
 
 import Home from "./pages/Home/Home";
 import EventList from "./pages/EventList/EventList";
@@ -9,6 +10,8 @@ import Root from "./pages/Root";
 import "./App.css";
 
 const App = () => {
+  useSpinningFavicon();
+  
   return (
     <BrowserRouter>
       <Routes>
@@ -19,7 +22,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
-      x
     </BrowserRouter>
   );
 };

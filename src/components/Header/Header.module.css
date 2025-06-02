@@ -65,9 +65,9 @@
 .navList li a {
   position: relative;
   display: flex;
-  align-items: flex-start; /* Align text toward the top */
+  align-items: flex-start;
   justify-content: center;
-  padding-top: 36px; /* Adjust for visual centering */
+  padding-top: 36px;
   height: 100%;
   text-decoration: none;
   color: #ffffffcc;
@@ -79,7 +79,7 @@
 .navList li a::after {
   content: "";
   position: absolute;
-  bottom: -16px; /* Move it below the header line */
+  bottom: -16px;
   left: 50%;
   transform: translateX(-50%) scaleX(0.6);
   width: 60px;
