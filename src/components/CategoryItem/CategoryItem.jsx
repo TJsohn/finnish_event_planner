@@ -1,8 +1,8 @@
 import styles from "./CategoryItem.module.css";
 
-const CategoryItem = ({ imgUrl, category, altText }) => {
+const CategoryItem = ({ imgUrl, category, altText, onCategoryClick }) => {
   return (
-    <div className={styles.categoryContainer}>
+    <div onClick={onCategoryClick} className={styles.categoryContainer}>
       <img src={imgUrl} alt={altText} />
       <span>{category}</span>
     </div>

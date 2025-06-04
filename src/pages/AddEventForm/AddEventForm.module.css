@@ -1,0 +1,70 @@
+.formContainer {
+  max-width: 960px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 5px;
+  padding: 4rem 10rem;
+  line-height: 2;
+}
+
+.form {
+  text-align: left;
+}
+
+.form label,
+.form input,
+.form textarea,
+.form select {
+  display: block;
+  height: 2.5rem;
+}
+
+.form label {
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.form input,
+.form textarea,
+.form select {
+  margin-bottom: 1.2rem;
+}
+
+.form input,
+.form textarea {
+  padding: 0.5rem;
+}
+
+.inputSmall {
+  width: 200px;
+}
+
+.inputMedium {
+  width: 600px;
+}
+
+.inputLarge {
+  width: 600px;
+  height: 1000px;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  font-family: inherit;
+  font-size: 1rem;
+  color: #888;
+}
+
+.submitBtn {
+  width: 350px;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: #ffe600;
+  color: #2c293d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

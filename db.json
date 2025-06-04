@@ -1,0 +1,184 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Laravel Workshop",
+      "location": "Helsinki, Uusimaa",
+      "address": "Helsinki Central Library Oodi, Töölönlahdenkatu 4, Helsinki",
+      "date": "2025-07-12",
+      "description": "A hands-on Laravel 12 workshop for developers.",
+      "category": "technology"
+    },
+    {
+      "id": 2,
+      "title": "Tech Startups Expo",
+      "location": "Espoo, Uusimaa",
+      "address": "Aalto University Library, Otakaari 9, Espoo",
+      "date": "2025-08-05",
+      "description": "Showcase of the most promising tech startups in Finland.",
+      "category": "technology"
+    },
+    {
+      "id": 3,
+      "title": "AI in Healthcare Summit",
+      "location": "Vantaa, Uusimaa",
+      "address": "Vantaa City Library, Kielotie 13, Vantaa",
+      "date": "2025-09-01",
+      "description": "Exploring AI applications in modern healthcare systems.",
+      "category": "education"
+    },
+    {
+      "id": 4,
+      "title": "Green Tech Innovations",
+      "location": "Helsinki, Uusimaa",
+      "address": "Temppeliaukio Church, Lutherinkatu 3, Helsinki",
+      "date": "2025-10-10",
+      "description": "A sustainability-focused event showcasing eco-technology.",
+      "category": "culture"
+    },
+    {
+      "id": 5,
+      "title": "Women in AI Conference",
+      "location": "Espoo, Uusimaa",
+      "address": "Espoo Cultural Centre, Kulttuuriaukio 2, Espoo",
+      "date": "2025-08-20",
+      "description": "Leadership, research, and inclusion in AI fields.",
+      "category": "education"
+    },
+    {
+      "id": 6,
+      "title": "Cybersecurity Essentials Bootcamp",
+      "location": "Helsinki, Uusimaa",
+      "address": "Helsinki University Library, Unioninkatu 36, Helsinki",
+      "date": "2025-07-28",
+      "description": "Learn practical cybersecurity skills in two days.",
+      "category": "technology"
+    },
+    {
+      "id": 7,
+      "title": "Remote Work Culture Meetup",
+      "location": "Vantaa, Uusimaa",
+      "address": "Kuusijärvi Recreation Area, Kuusijärventie 11, Vantaa",
+      "date": "2025-09-18",
+      "description": "Discussing tools and strategies for remote teams.",
+      "category": "culture"
+    },
+    {
+      "id": 8,
+      "title": "SaaS Growth Tactics",
+      "location": "Helsinki, Uusimaa",
+      "address": "Helsinki Think Company, Yliopistonkatu 4, Helsinki",
+      "date": "2025-10-02",
+      "description": "Marketing and scaling techniques for SaaS founders.",
+      "category": "education"
+    },
+    {
+      "id": 9,
+      "title": "Creative Coding Jam",
+      "location": "Espoo, Uusimaa",
+      "address": "WeeGee Exhibition Centre, Ahertajankatu 5, Espoo",
+      "date": "2025-11-01",
+      "description": "A live coding and art event for creative developers.",
+      "category": "entertainment"
+    },
+    {
+      "id": 10,
+      "title": "Ethical Hacking Night",
+      "location": "Helsinki, Uusimaa",
+      "address": "Sanoma House Public Space, Töölönlahdenkatu 2, Helsinki",
+      "date": "2025-11-20",
+      "description": "Pen testing, hacking tools, and CTF competitions.",
+      "category": "technology"
+    },
+    {
+      "id": 11,
+      "title": "Nordic Jazz Festival",
+      "location": "Helsinki, Uusimaa",
+      "address": "Kaivopuisto Park, Puistokatu, Helsinki",
+      "date": "2025-12-15",
+      "description": "Celebrating Nordic jazz with local and international artists.",
+      "category": "culture"
+    },
+    {
+      "id": 12,
+      "title": "Marathon Training Camp",
+      "location": "Espoo, Uusimaa",
+      "address": "Central Park Espoo, Keskuspuisto, Espoo",
+      "date": "2025-12-08",
+      "description": "Professional marathon training program for all levels.",
+      "category": "sport"
+    },
+    {
+      "id": 13,
+      "title": "Finnish Language Immersion Weekend",
+      "location": "Vantaa, Uusimaa",
+      "address": "Tikkurila Library, Jokiniemenkatu 7, Vantaa",
+      "date": "2025-12-20",
+      "description": "Interactive Finnish language learning experience.",
+      "category": "education"
+    },
+    {
+      "id": 14,
+      "title": "Urban Hiking Adventure",
+      "location": "Helsinki, Uusimaa",
+      "address": "Suomenlinna Island, Suomenlinna, Helsinki",
+      "date": "2026-01-12",
+      "description": "Guided tour exploring Helsinki's natural and historical sites.",
+      "category": "travel"
+    },
+    {
+      "id": 15,
+      "title": "Stand-up Comedy Open Mic",
+      "location": "Espoo, Uusimaa",
+      "address": "Tapiola Garden Park, Tapiolankatu, Espoo",
+      "date": "2026-01-25",
+      "description": "Open mic night for aspiring and seasoned comedians.",
+      "category": "entertainment"
+    },
+    {
+      "id": 16,
+      "title": "Football Skills Workshop",
+      "location": "Vantaa, Uusimaa",
+      "address": "Myyrmäki Sports Park, Iskoskuja 3, Vantaa",
+      "date": "2026-02-08",
+      "description": "Professional football training for youth and adults.",
+      "category": "sport"
+    },
+    {
+      "id": 17,
+      "title": "Traditional Sami Culture Exhibition",
+      "location": "Helsinki, Uusimaa",
+      "address": "National Museum of Finland, Mannerheimintie 34, Helsinki",
+      "date": "2026-02-15",
+      "description": "Exploring the rich heritage of Finland's indigenous people.",
+      "category": "culture"
+    },
+    {
+      "id": 18,
+      "title": "Archipelago Island Hopping",
+      "location": "Helsinki, Uusimaa",
+      "address": "Market Square Ferry Terminal, Kauppatori, Helsinki",
+      "date": "2026-03-01",
+      "description": "Day trip exploring Helsinki's beautiful archipelago islands.",
+      "category": "travel"
+    },
+    {
+      "id": 19,
+      "title": "Data Science Bootcamp",
+      "location": "Espoo, Uusimaa",
+      "address": "Aalto University Undergraduate Centre, Otakaari 1, Espoo",
+      "date": "2026-03-15",
+      "description": "Intensive course covering Python, machine learning, and analytics.",
+      "category": "education"
+    },
+    {
+      "id": 20,
+      "title": "Music Production Masterclass",
+      "location": "Helsinki, Uusimaa",
+      "address": "Musiikkitalo Concert Hall, Mannerheimintie 13, Helsinki",
+      "date": "2026-04-05",
+      "description": "Learn professional music production techniques and software.",
+      "category": "entertainment"
+    }
+  ]
+}
