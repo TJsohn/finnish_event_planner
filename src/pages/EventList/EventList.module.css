@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .heroBannerWrapper {
   display: flex;
   flex-direction: column;
