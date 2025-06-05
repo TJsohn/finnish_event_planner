@@ -289,6 +289,21 @@
       "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
       "startDate": "2025-06-12",
       "endDate": "2025-06-12"
+    },
+    {
+      "id": "4390",
+      "title": "Potluck",
+      "date": "2025-06-05",
+      "address": "Martinlaaksonpolku 6",
+      "postalCode": "01620",
+      "location": "Vantaa",
+      "description": "potluck",
+      "category": "entertainment",
+      "startTime": "15:30",
+      "endTime": "17:19",
+      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06"
     }
   ]
 }
