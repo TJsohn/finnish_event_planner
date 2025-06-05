@@ -6,6 +6,7 @@ import styles from "./AddEventForm.module.css";
 const AddEventForm = ({onAddEvent}) => {
   const { post } = useAxios();
   const today = new Date().toISOString().split('T')[0];
+  const [successMessage, setSuccessMessage] = useState('');
 
   const [formData, setFormData] = useState({
     title: '',
@@ -50,7 +51,10 @@ const AddEventForm = ({onAddEvent}) => {
     try {
       const res = await post('http://localhost:3001/events', newEvent);
       onAddEvent(res.data);
-      navigate('/events');
+      setSuccessMessage('Event added successfully!');
+      setTimeout(() => {
+        navigate('/events');
+      }, 2500); 
     } catch (err) {
       console.error("Error adding event:", err);
     }
@@ -78,7 +82,7 @@ const AddEventForm = ({onAddEvent}) => {
           <label htmlFor="startDate">Start Date</label>
           <input className={styles.inputSmall} type="date" value={formData.startDate} onChange={handleChange} id="startDate" name="startDate" required />
           <label htmlFor="endDate">End Date</label>
-          <input className={styles.inputSmall} type="date" value={formData.endDate} onChange={handleChange} id="endDate" name="endDate" required />
+          <input className={styles.inputSmall} type="date" value={formData.endDate} onChange={handleChange} id="endDate" name="endDate" min={formData.startDate} required />
 
 
           <label htmlFor="startTime">Start Time</label>
@@ -103,15 +107,15 @@ const AddEventForm = ({onAddEvent}) => {
           <textarea className={styles.inputLarge} type="text" placeholder="Enter description of event" rows={30} value={formData.description} onChange={handleChange} id="description" name="description" required />
 
           <label htmlFor="imageUrl">Event Image</label>
-          <input className={styles.inputMedium} type="url" placeholder='Enter image URL (e.g., https://example.com/image.jpg)' value={formData.imageUrl} onChange={handleChange} id="imageUrl" name="imageUrl" required />
-
-
-          <div>
-            <button className={styles.submitBtn}>Add Event</button>
-          </div>
+          <input className={styles.inputMedium} type="url" placeholder='Enter image URL (e.g., https://example.com/image.jpg)' value={formData.imageUrl} onChange={handleChange} id="imageUrl" name="imageUrl" />
+          
+          <button className={styles.submitBtn}>Add Event</button>
+          {successMessage && (
+            <div className={styles.successMessage}>{successMessage}</div>
+          )}
         </div>
       </form>
-        </div>
+    </div>
     </>
   );
 };
