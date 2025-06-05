@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import styles from "./EventList.module.css";
 import EventCard from "../../components/EventCard/EventCard";
+import { supportedCategory } from "../../data/categories";
 
-function EventList() {
-  // filtering
+function EventList({ eventsData }) {
+  const [searchValue, setSearchValue] = useState("");
+  const [selectedCategoryId, setSelectedCategoryId] = useState("all");
+
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const filteredEvents = eventsData.filter((event) => {
+    const search = searchValue.toLowerCase();
+
+    const matchesSearch =
+      (event.title.toLowerCase().includes(search) ||
+        event.location.toLowerCase().includes(search)) &&
+      (selectedCategoryId === "all"
+        ? true
+        : event.category === selectedCategoryId);
+
+    return matchesSearch;
+  });
 
   return (
     <>
@@ -13,59 +32,41 @@ function EventList() {
         <p>Explore vibrant event happening in Helsinki area.</p>
 
         <div>
-          <input type="text" name="search" />
+          <input
+            type="text"
+            name="search"
+            value={searchValue}
+            onChange={handleSearch}
+          />
         </div>
       </div>
       <div>
         <h2>Categories</h2>
         <div className={styles.categoryListContainer}>
-          <CategoryItem category="Culture" />
-          <CategoryItem category="Education" />
-          <CategoryItem category="Sport" />
-          <CategoryItem category="Technology" />
-          <CategoryItem category="Entertainment" />
-          <CategoryItem category="Travel" />
+          {Object.entries(supportedCategory).map(([id, label]) => (
+            <CategoryItem
+              key={id}
+              category={label}
+              onCategoryClick={() => {
+                setSelectedCategoryId(id);
+              }}
+            />
+          ))}
         </div>
 
         <div>
           <h2>Events</h2>
           <div className={styles.eventCardContainer}>
-            <EventCard
-              location="Espoo"
-              title="Event1"
-              date="2020-01-10"
-              category="education"
-            />
-            <EventCard
-              location="helsinki"
-              title="Event2"
-              date="2020-01-10"
-              category="sport"
-            />
-            <EventCard
-              location="Espoo"
-              title="Event3"
-              date="2020-01-10"
-              category="travel"
-            />
-            <EventCard
-              location="vantaa"
-              title="Event4"
-              date="2020-01-10"
-              category="technology"
-            />
-            <EventCard
-              location="vantaa"
-              title="Event5"
-              category="entertainment"
-              date="2020-01-10"
-            />
-            <EventCard
-              location="espoo"
-              title="Event6"
-              date="2020-01-10"
-              category="culture"
-            />
+            {filteredEvents.length > 0 ? (
+              filteredEvents.map((event) => (
+                <EventCard key={event.id} {...event} />
+              ))
+            ) : (
+              <p>
+                Event not found! Looks like it ghosted us 👻! Try different
+                keywords 🔍
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -74,13 +75,3 @@ function EventList() {
 }
 
 export default EventList;
-
-// const events = [
-//   {
-//     id: "",
-//     title: "",
-//     date: "",
-//     location: "",
-//     category: "",
-//   },
-// ];

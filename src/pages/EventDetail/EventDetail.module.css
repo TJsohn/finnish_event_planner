@@ -1,0 +1,99 @@
+/* EventDetail.module.css */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-family: 'Lydia Sans', sans-serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.eventImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Lydia Sans', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Map Section */
+.mapContainer {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+iframe {
+  border-radius: 8px;
+}
+
+/* Weather Info */
+.weatherContainer {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #eef2f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.weatherContainer h2 {
+  font-family: 'Lydia Sans', sans-serif;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.weatherContainer p {
+  font-family: 'Lydia Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.weatherContainer strong {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .eventImage {
+    margin-bottom: 15px;
+  }
+
+  .mapContainer {
+    margin-top: 20px;
+  }
+
+  .weatherContainer {
+    margin-top: 20px;
+  }
+}

@@ -28,8 +28,8 @@ const EventCard = ({ location, title, date, category, id }) => {
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{location}</p>
-      <Link className={styles.button} to="/events/details">
-        See details
+      <Link className={styles.button} to={`/events/details/${id}`}>
+      See details
       </Link>
     </div>
   );
