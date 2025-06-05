@@ -1,22 +1,20 @@
-import { useParams } from "react-router";  // Correct for react-router
+import { useParams } from "react-router";  
 import { useState, useEffect } from "react";
-import styles from "./EventDetail.module.css";  // Styling later
+import styles from "./EventDetail.module.css";  
 
 const EventDetail = ({ eventsData }) => {
-  const { eventId } = useParams();  // Get the eventId from the URL
+  const { eventId } = useParams();  
   const [event, setEvent] = useState(null);
   const [weather, setWeather] = useState(null);
 
-  // Find the event from eventsData
   useEffect(() => {
     const foundEvent = eventsData.find((e) => e.id.toString() === eventId);
     setEvent(foundEvent);
 
-    // Fetch weather for the location
     if (foundEvent) {
       const fetchWeather = async () => {
-        const location = foundEvent.location.split(',')[0];  // Take city for weather
-        const apiKey = "59957c3ac93508bc3ae610a4fee2df0f";  // Replace with your OpenWeatherMap API key
+        const location = foundEvent.location.split(',')[0]; 
+        const apiKey = "59957c3ac93508bc3ae610a4fee2df0f";  
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
 
         try {
@@ -35,7 +33,6 @@ const EventDetail = ({ eventsData }) => {
     return <div className={styles.container}>Event not found</div>;
   }
 
-  // Format the address for the Google Maps Embed API
   const address = encodeURIComponent(event.address);
 
   return (
@@ -52,7 +49,6 @@ const EventDetail = ({ eventsData }) => {
       <p><strong>Category:</strong> {event.category}</p>
       <p><strong>Description:</strong> {event.description}</p>
 
-      {/* Google Map embed */}
       <div className={styles.mapContainer}>
         <iframe
           src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=AIzaSyCsXViH5vbINPYFvG359obqMUDvPq-ub-0`}
@@ -65,7 +61,6 @@ const EventDetail = ({ eventsData }) => {
         ></iframe>
       </div>
 
-      {/* Weather Info */}
       {weather && (
         <div className={styles.weatherContainer}>
           <h2>Weather in {event.location}</h2>

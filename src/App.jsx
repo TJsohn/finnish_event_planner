@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router";  // Corrected import for react-router-dom
+import { BrowserRouter, Routes, Route } from "react-router"; 
 import useSpinningFavicon from "./hooks/useSpinningFavicon";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home/Home";
@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/events")  // Assuming your json-server is running on port 3001
+      .get("http://localhost:3001/events") 
       .then((res) => {
         setEventsData(res.data);
       })
