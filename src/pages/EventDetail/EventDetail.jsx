@@ -1,20 +1,26 @@
-import { useParams } from "react-router";  
+import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
-import styles from "./EventDetail.module.css";  
+import styles from "./EventDetail.module.css";
 
 const EventDetail = ({ eventsData }) => {
-  const { eventId } = useParams();  
+  const { eventId } = useParams();
+  const navigate = useNavigate();
   const [event, setEvent] = useState(null);
+  const [editedEvent, setEditedEvent] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const [weather, setWeather] = useState(null);
+
+  const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
 
   useEffect(() => {
     const foundEvent = eventsData.find((e) => e.id.toString() === eventId);
     setEvent(foundEvent);
+    setEditedEvent(foundEvent);
 
     if (foundEvent) {
       const fetchWeather = async () => {
-        const location = foundEvent.location.split(',')[0]; 
-        const apiKey = "59957c3ac93508bc3ae610a4fee2df0f";  
+        const location = foundEvent.location.split(',')[0];
+        const apiKey = "59957c3ac93508bc3ae610a4fee2df0f";
         const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
 
         try {
@@ -29,25 +35,140 @@ const EventDetail = ({ eventsData }) => {
     }
   }, [eventId, eventsData]);
 
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleChange = (field, value) => {
+    setEditedEvent((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleCancel = () => {
+    setEditedEvent(event);
+    setIsEditing(false);
+  };
+
+  const handleSave = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/events/${eventId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedEvent),
+      });
+
+      if (!response.ok) throw new Error("Failed to update event");
+
+      const updated = await response.json();
+      setEvent(updated);
+      setEditedEvent(updated);
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error saving changes:", error);
+    }
+  };
+
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/events/${eventId}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Failed to delete event");
+
+      navigate("/events");
+    } catch (error) {
+      console.error("Error deleting event:", error);
+    }
+  };
+
   if (!event) {
     return <div className={styles.container}>Event not found</div>;
   }
 
-  const address = encodeURIComponent(event.address);
+  const address = encodeURIComponent(editedEvent.address);
+  const formatEventDate = (date) => {
+    return date || "";
+  };
 
   return (
     <div className={styles.container}>
-      <h1>{event.title}</h1>
+      {isEditing ? (
+        <input
+          className={styles.titleInput}
+          value={editedEvent.title}
+          onChange={(e) => handleChange("title", e.target.value)}
+        />
+      ) : (
+        <h1>{event.title}</h1>
+      )}
+
       <img
-        src="https://images.unsplash.com/photo-1652381210069-2e4b639b3585?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={editedEvent.imageUrl || defaultImageUrl}
         alt={event.title}
         className={styles.eventImage}
       />
-      <p><strong>Date:</strong> {event.date}</p>
-      <p><strong>Location:</strong> {event.location}</p>
-      <p><strong>Address:</strong> {event.address}</p>
-      <p><strong>Category:</strong> {event.category}</p>
-      <p><strong>Description:</strong> {event.description}</p>
+
+      <p>
+        <strong>Date:</strong>{" "}
+        {isEditing ? (
+          <input
+            value={editedEvent.date}
+            onChange={(e) => handleChange("date", e.target.value)}
+          />
+        ) : (
+          formatEventDate(event.date)
+        )}
+      </p>
+
+      <p>
+        <strong>Location:</strong>{" "}
+        {isEditing ? (
+          <input
+            value={editedEvent.location}
+            onChange={(e) => handleChange("location", e.target.value)}
+          />
+        ) : (
+          event.location
+        )}
+      </p>
+
+      <p>
+        <strong>Address:</strong>{" "}
+        {isEditing ? (
+          <input
+            value={editedEvent.address}
+            onChange={(e) => handleChange("address", e.target.value)}
+          />
+        ) : (
+          event.address
+        )}
+      </p>
+
+      <p>
+        <strong>Category:</strong>{" "}
+        {isEditing ? (
+          <input
+            value={editedEvent.category}
+            onChange={(e) => handleChange("category", e.target.value)}
+          />
+        ) : (
+          event.category
+        )}
+      </p>
+
+      <p>
+        <strong>Description:</strong>{" "}
+        {isEditing ? (
+          <textarea
+            value={editedEvent.description}
+            onChange={(e) => handleChange("description", e.target.value)}
+          />
+        ) : (
+          event.description
+        )}
+      </p>
 
       <div className={styles.mapContainer}>
         <iframe
@@ -68,6 +189,17 @@ const EventDetail = ({ eventsData }) => {
           <p><strong>Conditions:</strong> {weather.weather[0].description}</p>
         </div>
       )}
+
+      <div className={styles.buttonGroup}>
+        {!isEditing && <button onClick={handleEdit}>Edit</button>}
+        {isEditing && (
+          <>
+            <button onClick={handleSave}>Save</button>
+            <button onClick={handleCancel}>Cancel</button>
+            <button onClick={handleDelete}>Delete</button>
+          </>
+        )}
+      </div>
     </div>
   );
 };

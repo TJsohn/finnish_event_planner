@@ -1,7 +1,7 @@
 .formContainer {
   max-width: 960px;
   margin: 2rem auto;
-  background: white;
+  background: rgb(227, 206, 206);
   border-radius: 5px;
   padding: 4rem 10rem;
   line-height: 2;
@@ -51,7 +51,7 @@
 .form input::placeholder,
 .form textarea::placeholder {
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #888;
 }
 

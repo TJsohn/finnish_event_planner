@@ -11,7 +11,15 @@ const categoryLabels = {
     travel: "Travel",
 };
 
-const EventCard = ({ location, title, date, category, id }) => {
+const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
+
+function formatEventDate(startDate, endDate) {
+  if (!startDate) return "";
+  if (!endDate || startDate === endDate) return startDate;
+  return `${startDate} - ${endDate}`;
+}
+
+const EventCard = ({ location, title, startDate, endDate, category, id, imageUrl }) => {
   return (
     <div className={styles.eventCard}>
         <div className={styles.categoryContainer}>
@@ -21,15 +29,15 @@ const EventCard = ({ location, title, date, category, id }) => {
             </span>
         </div>
       <img
-        src="https://images.unsplash.com/photo-1652381210069-2e4b639b3585?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={imageUrl || defaultImageUrl}
         alt={title}
         className={styles.eventImage}
       />
       <h2>{title}</h2>
-      <p>{date}</p>
+      <p>{formatEventDate(startDate, endDate)}</p>
       <p>{location}</p>
       <Link className={styles.button} to={`/events/details/${id}`}>
-      See details
+        See details
       </Link>
     </div>
   );
