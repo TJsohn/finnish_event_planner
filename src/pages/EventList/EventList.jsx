@@ -4,7 +4,7 @@ import styles from "./EventList.module.css";
 import EventCard from "../../components/EventCard/EventCard";
 import { supportedCategory } from "../../data/categories";
 
-function EventList({ eventsData }) {
+function EventList({ eventsData }) {  
   const [searchValue, setSearchValue] = useState("");
   const [selectedCategoryId, setSelectedCategoryId] = useState("all");
 
@@ -16,8 +16,8 @@ function EventList({ eventsData }) {
     const search = searchValue.toLowerCase();
 
     const matchesSearch =
-      (event.title.toLowerCase().includes(search) ||
-        event.location.toLowerCase().includes(search)) &&
+      (event.title?.toLowerCase().includes(search) ||
+        event.location?.toLowerCase().includes(search)) &&
       (selectedCategoryId === "all"
         ? true
         : event.category === selectedCategoryId);
