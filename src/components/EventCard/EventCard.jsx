@@ -13,10 +13,18 @@ const categoryLabels = {
 
 const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
 
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+}
+
 function formatEventDate(startDate, endDate) {
   if (!startDate) return "";
-  if (!endDate || startDate === endDate) return startDate;
-  return `${startDate} - ${endDate}`;
+  const formattedStart = formatDate(startDate);
+  const formattedEnd = formatDate(endDate);
+  if (!endDate || startDate === endDate) return formattedStart;;
+  return `${formattedStart} - ${formattedEnd}`;
 }
 
 const EventCard = ({ location, title, startDate, endDate, category, id, imageUrl }) => {
