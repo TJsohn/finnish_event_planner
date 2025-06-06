@@ -7,8 +7,8 @@ import EventList from "./pages/EventList/EventList";
 import About from "./pages/About/About";
 import AddEventForm from "./pages/AddEventForm/AddEventForm";
 import Root from "./pages/Root";
-import "./App.css";
 import EventDetail from "./pages/EventDetail/EventDetail";
+import axios from "axios";
 
 const App = () => {
   const {get} = useAxios();

@@ -26,14 +26,23 @@
   }
 } */
 
-/* index.css */
+html {
+  box-sizing: border-box;
+}
 
-html, body {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
+  box-sizing: inherit;
+}
+
+html, body {
   height: 100%;
   font-family: sans-serif;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -42,9 +51,19 @@ html, body {
   flex-direction: column;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+img {
+  max-width: 100%;
+  display: block;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
