@@ -6,38 +6,32 @@ Brief description of what your project does, its main features, and the problem 
 
 ## Setup Instructions
 
-### Prerequisites
-
-- List any software requirements
-- Include version numbers if specific versions are needed
-
-### Installation
+### How to run application
 
 1. Clone the repository
 
-   ```bash
-   git clone [repository-url]
-   cd [project-directory]
+   ```
+   git clone https://github.com/TJsohn/finnish_event_planner
+
+   cd finnish_event_planner
    ```
 
 2. Install dependencies
 
-   ```bash
+   ```
    npm install
-   # or
-   pip install -r requirements.txt
    ```
 
-3. Configure environment variables
+3. Run local server
 
-   - Copy `.env.example` to `.env`
-   - Update the configuration values
+   ```
+   npm run server
+   ```
 
 4. Run the application
-   ```bash
-   npm start
-   # or
-   python app.py
+
+   ```
+   npm run dev
    ```
 
 ## Team Members and Their Roles
@@ -45,27 +39,31 @@ Brief description of what your project does, its main features, and the problem 
 ### Project Managers Responsibilities
 
 - Handle daily meetings, update changes, bring up any issues that team has faced
-- Break down project requirements into actionable tasks and divide them based on skills and availability
+- Break down project requirements into actionable tasks and divide them based on skills, availability as well as preferences
 - Maintain good understanding and clear communication on team's communicating channel
 - Keep everyone updated and track project's progress daily
 
 ### Members Responsibilities
 
-- **[Sohn, Taejeong]** - [Project Manager, Developer] - [Brief description of responsibilities]
-- **[Mai Tran]** - [Project Manager, Developer] - [Brief description of responsibilities]
-- **[Jamil Muhammad]** - [UI/design, Developer] - [Brief description of responsibilities]
-- **[Riabokon, Anton]** - [UI/design, Developer] - [Brief description of responsibilities]
+As a team, we decided that each member will work on certain components throughout the whole development process to maintain smooth and well-organized code flows.
 
-## What You Learned / What You'd Improve
+- **Sohn Taejeong** - [Project Manager, Developer] : Work on the EventCard, AddEventForm, Presentation slides
+- **Mai Tran** - [Project Manager, Developer] : Work on EventList, AddEventForm, documentations
+- **Jamil Muhammad** - [UI/design, Developer] : Work on weather API, map view feature, About page, create db.json
+- **Riabokon Anton** - [UI/design, Developer] : Work on Home page, EventDetail page, application designs
 
-### What We Learned
+## What we learned / What we'd improve
 
-- Key technical skills or concepts gained
-- Insights about teamwork and collaboration
-- New tools or frameworks discovered
+### What we learned
 
-### What We'd Improve
+- Work with GitHub Project Board: how to create task tickets, create different lists (todos, in progress, done, backlog, etc.)
+- Get used to version control - git management
+- Work as a team efficiently: everyone can bring up their opinions and solutions equally and the whole team can decided which will be the best approach for the application
+- Experience a real-life working environment with daily meetings and remote working
+- Have better time management with precise task deadlines
 
-- Areas for code optimization
-- Features that could be added
-- Process improvements for future projects
+### What we'd improve
+
+- Initialize the project in a mnore decisive way: decide what technology is the most approachable and suitable for the team based on skills and abilities
+- Read through the project's requirements as a team to come up with the best solution and to avoid repetitive changes during the process
+- Avoid misunderstandings among the team members by being active in team's conversations, bring out any issues we have faced and ask for support if needed
