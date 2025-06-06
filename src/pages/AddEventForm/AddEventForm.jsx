@@ -40,7 +40,7 @@ const AddEventForm = ({onAddEvent}) => {
     }
 
     for (const key in formData) {
-      if (!formData[key]) {
+      if (key !== 'imageUrl' && !formData[key]) {
         alert(`Please fill in all fields.`);
         return;
       }

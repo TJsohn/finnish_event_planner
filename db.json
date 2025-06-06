@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Neighborhood Summer BBQ",
       "location": "Helsinki",
       "address": "Töölönlahdenkatu 4",
@@ -15,7 +15,7 @@
       "endTime": "19:00"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "International Food Festival",
       "location": "Espoo",
       "address": "Otakaari 9",
@@ -29,7 +29,7 @@
       "endTime": "18:00"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Coffee & Stories Morning",
       "location": "Vantaa",
       "address": "Kielotie 13",
@@ -43,7 +43,7 @@
       "endTime": "12:00"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Green Tech Garden Party",
       "location": "Helsinki",
       "address": "Lutherinkatu 3",
@@ -57,7 +57,7 @@
       "endTime": "18:00"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Midsummer Celebration",
       "location": "Espoo",
       "address": "Kulttuuriaukio 2",
@@ -71,7 +71,7 @@
       "endTime": "23:00"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Community Garden Workshop",
       "location": "Helsinki",
       "address": "Unioninkatu 36",
@@ -85,7 +85,7 @@
       "endTime": "15:00"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Remote Work Sauna Evening",
       "location": "Vantaa",
       "address": "Kuusijärventie 11",
@@ -99,7 +99,7 @@
       "endTime": "21:00"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Farmers Market Breakfast",
       "location": "Helsinki",
       "address": "Yliopistonkatu 4",
@@ -113,7 +113,7 @@
       "endTime": "11:00"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Outdoor Movie Night",
       "location": "Espoo",
       "address": "Ahertajankatu 5",
@@ -127,7 +127,7 @@
       "endTime": "23:30"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Traditional Crafts Circle",
       "location": "Helsinki",
       "address": "Töölönlahdenkatu 2",
@@ -141,7 +141,7 @@
       "endTime": "17:00"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Summer Jazz Jam Session",
       "location": "Helsinki",
       "address": "Puistokatu",
@@ -155,7 +155,7 @@
       "endTime": "20:00"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Morning Run Club",
       "location": "Espoo",
       "address": "Keskuspuisto",
@@ -169,7 +169,7 @@
       "endTime": "08:30"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Finnish Language Café",
       "location": "Vantaa",
       "address": "Jokiniemenkatu 7",
@@ -183,7 +183,7 @@
       "endTime": "20:00"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Urban Nature Walk",
       "location": "Helsinki",
       "address": "Suomenlinna",
@@ -197,7 +197,7 @@
       "endTime": "13:00"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Comedy Open Mic Night",
       "location": "Espoo",
       "address": "Tapiolankatu",
@@ -211,7 +211,7 @@
       "endTime": "21:30"
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Football Skills Practice",
       "location": "Vantaa",
       "address": "Iskoskuja 3",
@@ -225,7 +225,7 @@
       "endTime": "12:00"
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Sami Culture Storytelling Evening",
       "location": "Helsinki",
       "address": "Mannerheimintie 34",
@@ -239,7 +239,7 @@
       "endTime": "20:30"
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Island Hopping Day Trip",
       "location": "Helsinki",
       "address": "Kauppatori",
@@ -253,7 +253,7 @@
       "endTime": "17:00"
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Community Potluck Dinner",
       "location": "Espoo",
       "address": "Otakaari 1",
@@ -267,7 +267,7 @@
       "endTime": "20:00"
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Outdoor Concert in the Park",
       "location": "Helsinki",
       "address": "Mannerheimintie 13",
@@ -279,7 +279,51 @@
       "imageUrl": "",
       "startTime": "16:00",
       "endTime": "19:00"
+    },
+    {
+      "id": "2f2c",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Erottajankatu 7",
+      "postalCode": "00130",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "entertainment",
+      "startTime": "16:50",
+      "endTime": "22:53",
+      "imageUrl": "",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06"
+    },
+    {
+      "id": "53bc",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Atlantinkatu 12",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "culture",
+      "startTime": "20:10",
+      "endTime": "23:09",
+      "imageUrl": "",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06"
+    },
+    {
+      "id": "ec11",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Mechelininkatu 12",
+      "postalCode": "00100",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "entertainment",
+      "startTime": "17:39",
+      "endTime": "23:45",
+      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
+      "startDate": "2025-06-20",
+      "endDate": "2025-06-20"
     }
-    
   ]
 }
