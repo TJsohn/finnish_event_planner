@@ -103,19 +103,3 @@ textarea:focus {
   border: 1px solid #b6e7a6;
   box-shadow: 0 2px 8px rgba(60, 180, 60, 0.06);
 }
-
-/* @media (max-width: 600px) {
-  .formContainer {
-    padding: 16px 6px;
-  }
-
-  .row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .inputSmall {
-    width: 100%;
-    max-width: 100%;
-  }
-} */

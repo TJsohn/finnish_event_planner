@@ -259,51 +259,7 @@
       "imageUrl": "",
       "startTime": "14:00",
       "endTime": "19:00"
-    },
-    {
-      "id": "553a",
-      "title": "Asian culture day",
-      "date": "2025-06-05",
-      "address": "Mechelininkatu 12",
-      "postalCode": "00100",
-      "location": "Helsinki",
-      "description": "Asian culture",
-      "category": "culture",
-      "startTime": "12:30",
-      "endTime": "15:00",
-      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
-      "startDate": "2025-06-05",
-      "endDate": "2025-06-08"
-    },
-    {
-      "id": "5da7",
-      "title": "BBQ",
-      "date": "2025-06-05",
-      "address": "Mechelininkatu 12",
-      "postalCode": "00100",
-      "location": "Helsinki",
-      "description": "BBQ",
-      "category": "entertainment",
-      "startTime": "13:00",
-      "endTime": "15:00",
-      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
-      "startDate": "2025-06-12",
-      "endDate": "2025-06-12"
-    },
-    {
-      "id": "4390",
-      "title": "Potluck",
-      "date": "2025-06-05",
-      "address": "Martinlaaksonpolku 6",
-      "postalCode": "01620",
-      "location": "Vantaa",
-      "description": "potluck",
-      "category": "entertainment",
-      "startTime": "15:30",
-      "endTime": "17:19",
-      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
-      "startDate": "2025-06-06",
-      "endDate": "2025-06-06"
     }
+    
   ]
 }
