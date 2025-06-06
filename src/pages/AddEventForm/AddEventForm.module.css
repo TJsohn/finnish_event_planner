@@ -1,70 +1,105 @@
 .formContainer {
-  max-width: 960px;
-  margin: 2rem auto;
-  background: rgb(227, 206, 206);
-  border-radius: 5px;
-  padding: 4rem 10rem;
-  line-height: 2;
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px 24px;
 }
 
 .form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.row label {
+  min-width: 90px;
+  margin-bottom: 0;
+}
+
+label {
+  margin-bottom: 4px;
+  margin-left: 8px;
+  margin-right: 2px;
+  font-weight: 600;
+  color: #22223b;
   text-align: left;
 }
 
-.form label,
-.form input,
-.form textarea,
-.form select {
-  display: block;
-  height: 2.5rem;
-}
-
-.form label {
-  margin-bottom: 0.3rem;
-  font-weight: bold;
-}
-
-.form input,
-.form textarea,
-.form select {
-  margin-bottom: 1.2rem;
-}
-
-.form input,
-.form textarea {
-  padding: 0.5rem;
+.inputSmall,
+.inputMedium,
+.inputLarge,
+select,
+textarea {
+  border: 1px solid #c9c9c9;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background: #f8f8fa;
+  transition: border 0.2s;
+  margin-bottom: 8px;
+  margin-top: 4px;
 }
 
 .inputSmall {
-  width: 200px;
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 180px;
+  max-width: 400px;
 }
 
 .inputMedium {
-  width: 600px;
+  width: 100%;
 }
 
-.inputLarge {
-  width: 600px;
-  height: 1000px;
+.inputLarge,
+textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
 }
 
-.form input::placeholder,
-.form textarea::placeholder {
-  font-family: inherit;
-  font-size: 0.8rem;
-  color: #888;
+input:focus,
+select:focus,
+textarea:focus {
+  border: 1.5px solid #4e8cff;
+  outline: none;
+  background: #f0f7ff;
 }
 
 .submitBtn {
-  width: 350px;
-  margin: 0;
-  padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background-color: #ffe600;
-  color: #2c293d;
+  background: linear-gradient(90deg, #4e8cff 0%, #38b6ff 100%);
+  color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.submitBtn:hover {
+  background: linear-gradient(90deg, #38b6ff 0%, #4e8cff 100%);
+}
+
+.successMessage {
+  background: #d1f7c4;
+  color: #256029;
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin-top: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #b6e7a6;
+  box-shadow: 0 2px 8px rgba(60, 180, 60, 0.06);
 }

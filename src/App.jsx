@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router"; 
+import useAxios from "./hooks/useAxios";
+import { BrowserRouter, Routes, Route } from "react-router";
 import useSpinningFavicon from "./hooks/useSpinningFavicon";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home/Home";
@@ -10,20 +11,24 @@ import EventDetail from "./pages/EventDetail/EventDetail";
 import axios from "axios";
 
 const App = () => {
+  const {get} = useAxios();
   useSpinningFavicon();
 
   const [eventsData, setEventsData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/events") 
+      get("/events")
       .then((res) => {
         setEventsData(res.data);
       })
       .catch((error) => {
-        console.error("Failed to fetch events", error);
+        console.error("Fail to fectch", error);
       });
-  }, []);
+  }, [get]);
+
+  const addEventHandler = (newEvent) => {
+    setEventsData((prev) => [...prev, newEvent]);
+  };
 
   return (
     <BrowserRouter>
@@ -34,11 +39,8 @@ const App = () => {
             path="/events"
             element={<EventList eventsData={eventsData} />}
           />
-          <Route
-            path="/events/details/:eventId"
-            element={<EventDetail eventsData={eventsData} />}
-          />
-          <Route path="/add" element={<AddEventForm />} />
+          <Route path="/events/details/:id" element={<EventDetail />} />
+          <Route path="/add" element={<AddEventForm onAddEvent={addEventHandler}/>} />
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
