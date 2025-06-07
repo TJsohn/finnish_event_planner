@@ -1,9 +1,9 @@
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate } from "react-router"; 
 import { useState, useEffect } from "react";
 import styles from "./EventDetail.module.css";
 
 const EventDetail = ({ eventsData }) => {
-  const { eventId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [event, setEvent] = useState(null);
   const [editedEvent, setEditedEvent] = useState(null);
@@ -13,7 +13,7 @@ const EventDetail = ({ eventsData }) => {
   const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
 
   useEffect(() => {
-    const foundEvent = eventsData.find((e) => e.id.toString() === eventId);
+    const foundEvent = eventsData.find((e) => String(e.id) === id);
     setEvent(foundEvent);
     setEditedEvent(foundEvent);
 
@@ -33,7 +33,7 @@ const EventDetail = ({ eventsData }) => {
       };
       fetchWeather();
     }
-  }, [eventId, eventsData]);
+  }, [id, eventsData]); 
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -50,7 +50,7 @@ const EventDetail = ({ eventsData }) => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/events/${eventId}`, {
+      const response = await fetch(`http://localhost:3001/events/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const EventDetail = ({ eventsData }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/events/${eventId}`, {
+      const response = await fetch(`http://localhost:3001/events/${id}`, {
         method: "DELETE",
       });
 
