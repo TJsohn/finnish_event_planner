@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-const useSpinningFavicon = (src = '/logo-flower.svg', size = 32, speed = 0.05) => {
+const useSpinningFavicon = (
+  src = "/logo-flower.svg",
+  size = 32,
+  speed = 0.05
+) => {
   useEffect(() => {
     const img = new Image();
     img.src = src;
@@ -11,8 +15,8 @@ const useSpinningFavicon = (src = '/logo-flower.svg', size = 32, speed = 0.05) =
     let currentFaviconUrl = null;
 
     img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
 
       canvas.width = size;
       canvas.height = size;
@@ -30,22 +34,21 @@ const useSpinningFavicon = (src = '/logo-flower.svg', size = 32, speed = 0.05) =
             const url = URL.createObjectURL(blob);
 
             const existingLink = document.querySelector("link[rel*='icon']");
-            const link = existingLink || document.createElement('link');
+            const link = existingLink || document.createElement("link");
 
-            link.type = 'image/png';
-            link.rel = 'icon';
+            link.type = "image/png";
+            link.rel = "icon";
             link.href = url;
 
             if (!existingLink) {
               document.head.appendChild(link);
             }
 
-            
             if (currentFaviconUrl) {
               URL.revokeObjectURL(currentFaviconUrl);
             }
             currentFaviconUrl = url;
-          }, 'image/png');
+          }, "image/png");
 
           angle += speed;
           lastUpdate = timestamp;
