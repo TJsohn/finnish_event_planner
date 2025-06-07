@@ -16,14 +16,14 @@
   color: #333;
 }
 
-h1,
+/* h1,
 h2 {
   color: #1d3557;
 }
 
 p {
   line-height: 1.6;
-}
+} */
 
 .imageContainer {
   display: flex;
@@ -65,8 +65,8 @@ p {
 
 .contactCard {
   width: 270px;
-  padding: .8rem;
-  margin: .7rem;
+  padding: 0.8rem;
+  margin: 0.7rem;
   background-color: #ffffff;
   border-radius: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -91,7 +91,7 @@ p {
   border: 2px solid #ddd;
 }
 
-.contactCardContainer{
+.contactCardContainer {
   width: 100%;
   display: flex;
   justify-content: center;

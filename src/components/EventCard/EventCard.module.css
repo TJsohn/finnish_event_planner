@@ -1,10 +1,12 @@
 .eventCard {
   background: #fff;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
-  width: 420px;
+  /* width: 360px; */
+  width: 25%;
   display: flex;
   flex-direction: column;
-  margin: 24px 16px;
+  border-radius: 10px;
+  /* margin: 24px 16px; */
   padding: 0 0 24px 0;
   position: relative;
   overflow: hidden;
@@ -14,7 +16,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
 }
 
-.categoryContainer {
+.categoryItem {
   position: absolute;
   padding: 6px 32px 6px 0px;
   z-index: 2;
@@ -40,13 +42,14 @@
 
 .eventImage {
   width: 100%;
-  height: 260px;
+  aspect-ratio: 16/9;
+  /* height: 260px; */
   object-fit: cover;
   display: block;
   background: #eee;
 }
 
-h2 {
+.eventCard h2 {
   font-size: 1.45rem;
   font-weight: 700;
   color: #111;
@@ -54,7 +57,7 @@ h2 {
   line-height: 1.2;
 }
 
-p {
+.categoryEmojis p {
   margin: 0 18px 8px 18px;
   color: #444;
   font-size: 1rem;

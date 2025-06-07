@@ -16,7 +16,7 @@ function formatEventDate(startDate, endDate) {
   if (!startDate) return "";
   const formattedStart = formatDate(startDate);
   const formattedEnd = formatDate(endDate);
-  if (!endDate || startDate === endDate) return formattedStart;;
+  if (!endDate || startDate === endDate) return formattedStart;
   return `${formattedStart} - ${formattedEnd}`;
 }
 
@@ -31,20 +31,20 @@ const EventCard = ({
 }) => {
   return (
     <div className={styles.eventCard}>
-      <div className={styles.categoryContainer}>
+      <div className={styles.categoryItem}>
         <p className={styles.categoryEmojis}>{emojisMap[category]}</p>
         <span className={styles.categoryText}>
           {supportedCategory[category] || category}
         </span>
       </div>
       <img
-        src={imageUrl? imageUrl : defaultImageUrl}
+        src={imageUrl ? imageUrl : defaultImageUrl}
         alt={title}
         className={styles.eventImage}
       />
       <h2>{title}</h2>
       <div className={styles.eventInfo}>
-       <span className={styles.eventInfoIcon}>📅</span>
+        <span className={styles.eventInfoIcon}>📅</span>
         <span>{formatEventDate(startDate, endDate)}</span>
       </div>
       <div className={styles.locationInfo}>
@@ -52,9 +52,9 @@ const EventCard = ({
         <span>{location}</span>
       </div>
       <div className={styles.footer}>
-      <Link className={styles.button} to={`/events/details/${id}`}>
-        See details
-      </Link>
+        <Link className={styles.button} to={`/events/details/${id}`}>
+          See details
+        </Link>
       </div>
     </div>
   );

@@ -1,14 +1,16 @@
-.categoryContainer img {
-  background-color: coral;
-  border-radius: 50%;
-  width: 80px;
-  aspect-ratio: 1/1;
-}
-
-.categoryContainer {
+.categoryItem {
+  cursor: pointer;
+  border: 2px solid pink;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.categoryItem:hover {
+  background-color: #f6b6c0;
 }
