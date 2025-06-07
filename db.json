@@ -324,6 +324,21 @@
       "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
       "startDate": "2025-06-20",
       "endDate": "2025-06-20"
+    },
+    {
+      "id": "9e19",
+      "title": "Potluck",
+      "date": "2025-06-07",
+      "address": "Atlantinkatu 12A",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "potluck",
+      "category": "entertainment",
+      "startTime": "11:35",
+      "endTime": "12:35",
+      "imageUrl": "",
+      "startDate": "2025-06-07",
+      "endDate": "2025-06-07"
     }
   ]
 }
