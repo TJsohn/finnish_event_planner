@@ -6,6 +6,11 @@
   font-size: 14px;
 }
 
+.footer,
+.footer * {
+  color: #fff !important;
+}
+
 .content {
   max-width: 1400px;
   margin: 0 auto;
