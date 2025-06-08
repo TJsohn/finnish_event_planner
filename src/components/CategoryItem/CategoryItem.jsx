@@ -2,7 +2,7 @@ import styles from "./CategoryItem.module.css";
 
 const CategoryItem = ({ category, onCategoryClick }) => {
   return (
-    <span onClick={onCategoryClick} className={styles.categoryItem}>
+    <span className={styles.categoryItem} onClick={onCategoryClick}>
       {category}
     </span>
   );
