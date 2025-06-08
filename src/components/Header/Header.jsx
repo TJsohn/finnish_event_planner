@@ -3,8 +3,12 @@ import styles from "./Header.module.css";
 
 import flower from "../../assets/images/logo-flower.svg";
 import textLogo from "../../assets/images/text-logo-static.svg";
+import { ThemeContext } from "../../ThemeContext";
+import { useContext } from "react";
 
 const Header = () => {
+  const { lightMode, toggleTheme } = useContext(ThemeContext);
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -14,11 +18,7 @@ const Header = () => {
             alt="Freydis flower"
             className={styles.logoFlower}
           />
-          <img
-            src={textLogo}
-            alt="Freydis text"
-            className={styles.logoText}
-          />
+          <img src={textLogo} alt="Freydis text" className={styles.logoText} />
         </Link>
       </div>
 
@@ -44,6 +44,11 @@ const Header = () => {
         <Link to="/signup" className={styles.signup}>
           Sign Up
         </Link>
+      </div>
+      <div>
+        <button className={styles.moodBtn} onClick={toggleTheme}>
+          {lightMode ? "🌙 " : "🔆"}
+        </button>
       </div>
     </header>
   );

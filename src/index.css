@@ -1,4 +1,10 @@
-/* :root {
+:root {
+  --bg: #151515;
+  --text: #ffffff;
+  --card-shadow: rgba(189, 184, 184, 0.1);
+}
+
+/*{
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -30,16 +36,19 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: sans-serif;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,9 +70,26 @@ a {
   color: inherit;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font: inherit;
   border: none;
   background: none;
   outline: none;
+}
+
+/* for light mood  */
+body.light-mode {
+  --bg: #ffffff;
+  --text: #151515;
+  --card-shadow: #cbc9c9;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: var(--card-shadow);
 }

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Lydia Sans';
-  src: url('/fonts/Lydia Sans Book.ttf') format('truetype');
+  font-family: "Lydia Sans";
+  src: url("/fonts/Lydia Sans Book.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -9,14 +9,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #151515;
+  background-color: var(--bg);
   padding: 0.5rem 2rem;
-  font-family: 'Lydia Sans', sans-serif;
-  color: white;
+  font-family: "Lydia Sans", sans-serif;
+  color: var(--text);
   position: relative;
   min-height: 84px;
   height: auto;
   overflow: hidden;
+  box-shadow: 0 4px 12px var(--card-shadow)
 }
 
 .logo,
@@ -82,7 +83,7 @@
   height: 100%;
   line-height: 1;
   text-decoration: none;
-  color: #ffffffcc;
+  color: var(--text);
   font-weight: 300;
   font-size: 1rem;
   transition: color 0.15s ease, text-shadow 0.15s ease;
@@ -113,7 +114,7 @@
 
 .navList li a:hover,
 .navList li a:focus {
-  color: #fff;
+  color: var(--text);
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
@@ -124,7 +125,7 @@
 
 .authButtons a {
   text-decoration: none;
-  color: #fff;
+  color: var(--text);
   font-size: 1rem;
 }
 
@@ -141,8 +142,15 @@
   animation: pulse 1.2s infinite;
 }
 
+.moodBtn{
+  color:var(--text);
+  font-size: 1em;
+  margin-left: 1rem;
+}
+
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(255, 230, 0, 0.7);
   }
   70% {

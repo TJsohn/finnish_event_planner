@@ -1,6 +1,6 @@
 .eventCard {
-  background: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  background: var(--bg);
+  box-shadow: 0 8px 32px var(--card-shadow);
   width: 420px;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .eventCard:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 32px var(--card-shadow);
 }
 
 .categoryContainer {
