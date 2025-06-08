@@ -53,6 +53,7 @@ function EventList({ eventsData }) {
                 onCategoryClick={() => {
                   setSelectedCategoryId(id);
                 }}
+                isActive={selectedCategoryId === id}
               />
             ))}
           </div>

@@ -32,7 +32,7 @@ const EventCard = ({
   return (
     <div className={styles.eventCard}>
       <div className={styles.categoryItem}>
-        <p className={styles.categoryEmojis}>{emojisMap[category]}</p>
+        <span className={styles.categoryEmojis}>{emojisMap[category]}</span>
         <span className={styles.categoryText}>
           {supportedCategory[category] || category}
         </span>
@@ -42,15 +42,19 @@ const EventCard = ({
         alt={title}
         className={styles.eventImage}
       />
-      <h2>{title}</h2>
-      <div className={styles.eventInfo}>
-        <span className={styles.eventInfoIcon}>📅</span>
-        <span>{formatEventDate(startDate, endDate)}</span>
+
+      <div className={styles.eventCardInfoContainer}>
+        <h2>{title}</h2>
+        <div className={styles.eventInfo}>
+          <span className={styles.eventInfoIcon}>📅</span>
+          <span>{formatEventDate(startDate, endDate)}</span>
+        </div>
+        <div className={styles.locationInfo}>
+          <span className={styles.eventInfoIcon}>📍</span>
+          <span>{location}</span>
+        </div>
       </div>
-      <div className={styles.locationInfo}>
-        <span className={styles.eventInfoIcon}>📍</span>
-        <span>{location}</span>
-      </div>
+
       <div className={styles.footer}>
         <Link className={styles.button} to={`/events/details/${id}`}>
           See details

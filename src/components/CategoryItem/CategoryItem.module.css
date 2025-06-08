@@ -14,3 +14,7 @@
 .categoryItem:hover {
   background-color: #f6b6c0;
 }
+
+.categoryItem.active {
+  background-color: #f6b6c0;
+}

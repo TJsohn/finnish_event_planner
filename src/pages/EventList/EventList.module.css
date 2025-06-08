@@ -1,5 +1,5 @@
-.eventListContainer {
-  /* padding-bottom: 30px; */
+.eventListContainer h2 {
+  font-size: 1.75rem;
 }
 
 .heroBannerWrapper {
@@ -48,7 +48,7 @@
 
 .eventCardContainer {
   display: flex;
-  justify-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 2.5rem;
 }
