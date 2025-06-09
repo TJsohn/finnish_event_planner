@@ -1,51 +1,61 @@
+import { useState } from "react";
 import { NavLink, Link } from "react-router";
 import styles from "./Header.module.css";
+import AuthModal from "../AuthModal/AuthModal";
 
 import flower from "../../assets/images/logo-flower.svg";
 import textLogo from "../../assets/images/text-logo-static.svg";
 
 const Header = () => {
+  const [modalType, setModalType] = useState(null);
+
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link to="/" className={styles.logoLink}>
-          <img
-            src={flower}
-            alt="Freydis flower"
-            className={styles.logoFlower}
-          />
-          <img
-            src={textLogo}
-            alt="Freydis text"
-            className={styles.logoText}
-          />
-        </Link>
-      </div>
+    <>
+      <header className={styles.headerWrapper}>
+        <div className={styles.headerLogo}>
+          <Link to="/" className={styles.logoLink}>
+            <img src={flower} alt="Freydis flower" className={styles.logoFlower} />
+            <img src={textLogo} alt="Freydis text" className={styles.logoText} />
+          </Link>
+        </div>
 
-      <nav className={styles.centerNav}>
-        <ul className={styles.navList}>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/events">Events</NavLink>
-          </li>
-          <li>
-            <NavLink to="/add">Add Event</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-        </ul>
-      </nav>
+        <nav className={styles.headerNav}>
+          <ul className={styles.navList}>
+            <li className={styles.navItem}>
+              <NavLink to="/" className={styles.navLink}>Home</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/events" className={styles.navLink}>Events</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/add" className={styles.navLink}>Add Event</NavLink>
+            </li>
+            <li className={styles.navItem}>
+              <NavLink to="/about" className={styles.navLink}>About</NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      <div className={styles.authButtons}>
-        <Link to="/login">Login</Link>
-        <Link to="/signup" className={styles.signup}>
-          Sign Up
-        </Link>
-      </div>
-    </header>
+        <div className={styles.headerAuth}>
+          <button
+            onClick={() => setModalType("login")}
+            className={styles.authButton}
+          >
+            Login
+          </button>
+          <button
+            onClick={() => setModalType("signup")}
+            className={`${styles.authButton} ${styles.authButtonSignup}`}
+          >
+            Sign Up
+          </button>
+        </div>
+      </header>
+
+      {modalType && (
+        <AuthModal type={modalType} onClose={() => setModalType(null)} />
+      )}
+    </>
   );
 };
 

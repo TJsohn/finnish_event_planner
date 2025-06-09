@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'Lydia Sans';
+  src: url('/fonts/Lydia Sans Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 .footer {
-  background-color: #000000;
-  color: rgb(255, 255, 255);
-  padding: 2rem 0;
-  font-family: sans-serif;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text);
+  font-family: 'Lydia Sans', sans-serif;
   font-size: 14px;
+  padding: 2rem 0 0.5rem 0;
 }
 
 .content {
@@ -14,27 +21,61 @@
 
 .columns {
   display: flex;
-  justify-content: start;
   flex-wrap: wrap;
   gap: 3rem;
-}
-
-.columns h4,
-.columns h3 {
-  margin-bottom: 0.5rem;
-}
-
-.columns p {
-  margin: 0.3rem 0;
+  align-items: flex-start;
 }
 
 .columns > div {
   flex: 0 0 auto;
 }
 
+.columns h3,
+.columns h4 {
+  color: var(--color-text);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+  cursor: default;
+}
+
+.footerLink,
+.footerText {
+  display: block;
+  margin: 0.3rem 0;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.footerLink:hover,
+.footerText:hover {
+  color: var(--color-text);
+  text-shadow: var(--shadow-glow);
+  cursor: pointer;
+}
+
+.appText {
+  color: var(--color-text-muted);
+  margin: 0.3rem 0;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  cursor: default;
+}
+
 .mobileApp {
   max-width: 250px;
   margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: default;
 }
 
 .storeButtons {
@@ -46,7 +87,14 @@
 .storeButtons img {
   width: 120px;
   height: auto;
-  cursor: pointer;
+  cursor: default;
+}
+
+.fullWidthLine {
+  border: 0;
+  border-top: 1px solid var(--color-text);
+  margin: 2rem 0 1rem;
+  width: 100%;
 }
 
 .bottomBar {
@@ -54,12 +102,33 @@
   justify-content: space-between;
   flex-wrap: wrap;
   font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
   gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.fullWidthLine {
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 2rem 0 1rem;
-  width: 100%;
+.footerNote {
+  color: var(--color-text-muted);
+  margin: 0;
+  cursor: default;
+  font-size: 10px;
+}
+
+.footerHover {
+  color: var(--color-text-muted);
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footerHover:hover {
+  color: var(--color-text);
+  text-shadow: var(--shadow-glow);
+  cursor: pointer;
+}
+
+.divider {
+  color: var(--color-text-muted);
+  margin: 0 0.25rem;
+  cursor: default;
 }

@@ -38,7 +38,16 @@ const App = () => {
             path="/events"
             element={<EventList eventsData={eventsData} />}
           />
-          <Route path="/events/details/:id" element={<EventDetail eventsData={eventsData}/>} />
+        <Route
+            path="/events/details/:id"
+            element={
+              <EventDetail
+                onDeleteEvent={(deletedId) => {
+                  setEventsData((prev) => prev.filter((event) => event.id !== deletedId));
+                }}
+              />
+            }
+          />
           <Route path="/add" element={<AddEventForm onAddEvent={addEventHandler}/>} />
           <Route path="/about" element={<About />} />
         </Route>

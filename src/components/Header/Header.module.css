@@ -5,29 +5,31 @@
   font-style: normal;
 }
 
-.header {
+.headerWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #151515;
+  background-color: var(--color-bg-dark);
   padding: 0.5rem 2rem;
-  font-family: 'Lydia Sans', sans-serif;
-  color: white;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-text);
   position: relative;
   min-height: 84px;
   height: auto;
   overflow: hidden;
 }
 
-.logo,
-.centerNav,
-.authButtons {
+.headerLogo,
+.headerNav,
+.headerAuth {
   display: flex;
   align-items: center;
   flex: 1;
 }
 
-.logo {
+.headerLogo {
   justify-content: flex-start;
   min-width: 180px;
 }
@@ -55,7 +57,7 @@
   }
 }
 
-.centerNav {
+.headerNav {
   justify-content: center;
 }
 
@@ -68,13 +70,13 @@
   height: 100%;
 }
 
-.navList li {
+.navItem {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-.navList li a {
+.navLink {
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -82,13 +84,14 @@
   height: 100%;
   line-height: 1;
   text-decoration: none;
-  color: #ffffffcc;
-  font-weight: 300;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  font-style: normal;
   font-size: 1rem;
   transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
-.navList li a::after {
+.navLink::after {
   content: "";
   position: absolute;
   bottom: -34px;
@@ -97,47 +100,59 @@
   transform-origin: center;
   width: 60px;
   height: 8px;
-  background-color: #ffe600;
+  background-color: var(--color-primary);
   border-radius: 4px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
-  box-shadow: 0 -2px 6px rgba(218, 241, 40, 0.6);
+  box-shadow: 0 -2px 6px rgba(218, 241, 40, 0.6); 
 }
 
-.navList li a:hover::after,
-.navList li a:focus::after {
+.navLink:hover::after,
+.navLink:focus::after {
   opacity: 1;
   transform: translateX(-50%) scaleX(1);
 }
 
-.navList li a:hover,
-.navList li a:focus {
-  color: #fff;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+.navLink:hover,
+.navLink:focus {
+  color: var(--color-text);
+  text-shadow: var(--shadow-glow);
 }
 
-.authButtons {
+.headerAuth {
   justify-content: flex-end;
   gap: 1rem;
 }
 
-.authButtons a {
+.authButton {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-text);
   font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.authButtons .signup {
-  background-color: #ffe600;
-  color: #26233c;
+.authButton:hover {
+  color: var(--color-text-hover);
+  text-shadow: var(--shadow-glow);
+}
+
+.authButtonSignup {
+  background-color: var(--color-primary);
+  color: var(--color-button-text);
+  font-weight: 400;
+  font-style: normal;
   padding: 0.2rem 0.4rem;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
-.authButtons .signup:hover {
-  background-color: #ffffff;
+.authButtonSignup:hover {
+  background-color: var(--color-primary-hover);
   animation: pulse 1.2s infinite;
 }
 
