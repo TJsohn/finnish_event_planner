@@ -4,7 +4,7 @@ import { emojisMap } from "../../data/emojisMap";
 import { supportedCategory } from "../../data/categories";
 
 const defaultImageUrl =
-  "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
+  "https://cdn.pixabay.com/photo/2017/07/27/12/31/party-2545168_1280.jpg";
 
 function formatDate(dateStr) {
   if (!dateStr) return "";
@@ -38,16 +38,24 @@ const EventCard = ({
         </span>
       </div>
       <img
-        src={imageUrl || defaultImageUrl}
+        src={imageUrl? imageUrl : defaultImageUrl}
         alt={title}
         className={styles.eventImage}
       />
       <h2>{title}</h2>
-      <p>{formatEventDate(startDate, endDate)}</p>
-      <p>{location}</p>
+      <div className={styles.eventInfo}>
+       <span className={styles.eventInfoIcon}>📅</span>
+        <span>{formatEventDate(startDate, endDate)}</span>
+      </div>
+      <div className={styles.locationInfo}>
+        <span className={styles.eventInfoIcon}>📍</span>
+        <span>{location}</span>
+      </div>
+      <div className={styles.footer}>
       <Link className={styles.button} to={`/events/details/${id}`}>
         See details
       </Link>
+      </div>
     </div>
   );
 };

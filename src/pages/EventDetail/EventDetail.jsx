@@ -1,96 +1,113 @@
-import { useParams, useNavigate } from "react-router"; 
+import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import styles from "./EventDetail.module.css";
 
-const EventDetail = ({ eventsData }) => {
+const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
+
+const EventDetail = ({ onDeleteEvent }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const [event, setEvent] = useState(null);
   const [editedEvent, setEditedEvent] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [weather, setWeather] = useState(null);
-
-  const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const foundEvent = eventsData.find((e) => String(e.id) === id);
-    setEvent(foundEvent);
-    setEditedEvent(foundEvent);
+    const fetchEvent = async () => {
+      try {
+        const res = await fetch(`http://localhost:3001/events/${id}`);
+        if (!res.ok) throw new Error("Event not found");
+        const data = await res.json();
+        setEvent(data);
+        setEditedEvent(data);
+        fetchWeather(data.location);
+      } catch (err) {
+        console.error("Error loading event:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    if (foundEvent) {
-      const fetchWeather = async () => {
-        const location = foundEvent.location.split(',')[0];
+    const fetchWeather = async (location) => {
+      try {
+        const city = location.split(",")[0];
         const apiKey = "59957c3ac93508bc3ae610a4fee2df0f";
-        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const response = await fetch(weatherUrl);
+        const data = await response.json();
+        setWeather(data);
+      } catch (error) {
+        console.error("Error fetching weather:", error);
+      }
+    };
 
-        try {
-          const response = await fetch(weatherUrl);
-          const data = await response.json();
-          setWeather(data);
-        } catch (error) {
-          console.error("Error fetching weather:", error);
-        }
-      };
-      fetchWeather();
-    }
-  }, [id, eventsData]); 
+    fetchEvent();
+  }, [id]);
 
-  const handleEdit = () => {
-    setIsEditing(true);
+  const handleEdit = () => setIsEditing(true);
+  const handleCancel = () => {
+    setEditedEvent(event);
+    setIsEditing(false);
   };
 
   const handleChange = (field, value) => {
     setEditedEvent((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleCancel = () => {
-    setEditedEvent(event);
-    setIsEditing(false);
-  };
-
   const handleSave = async () => {
     try {
       const response = await fetch(`http://localhost:3001/events/${id}`, {
         method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editedEvent),
       });
-
-      if (!response.ok) throw new Error("Failed to update event");
+      if (!response.ok) throw new Error("Failed to save changes");
 
       const updated = await response.json();
       setEvent(updated);
       setEditedEvent(updated);
       setIsEditing(false);
     } catch (error) {
-      console.error("Error saving changes:", error);
+      console.error("Error saving:", error);
     }
   };
 
   const handleDelete = async () => {
+    if (!window.confirm("Are you sure you want to delete this event?")) return;
+
     try {
       const response = await fetch(`http://localhost:3001/events/${id}`, {
         method: "DELETE",
       });
-
       if (!response.ok) throw new Error("Failed to delete event");
 
+      if (onDeleteEvent) onDeleteEvent(id);
       navigate("/events");
     } catch (error) {
       console.error("Error deleting event:", error);
     }
   };
 
-  if (!event) {
-    return <div className={styles.container}>Event not found</div>;
+  const formatDateRange = (start, end) => {
+    const format = (dateStr) =>
+      new Date(dateStr).toLocaleDateString("fi-FI");
+
+    return start === end
+      ? format(start)
+      : `${format(start)} – ${format(end)}`;
+  };
+
+  if (loading) {
+    return <div className={styles.container}>Loading event...</div>;
   }
 
-  const address = encodeURIComponent(editedEvent.address);
-  const formatEventDate = (date) => {
-    return date || "";
-  };
+  if (!event) {
+    return <div className={styles.container}>Event not found.</div>;
+  }
+
+  const address = encodeURIComponent(editedEvent.address || "");
 
   return (
     <div className={styles.container}>
@@ -110,20 +127,27 @@ const EventDetail = ({ eventsData }) => {
         className={styles.eventImage}
       />
 
-      <p>
-        <strong>Date:</strong>{" "}
+      <p><strong>Date:</strong>{" "}
         {isEditing ? (
-          <input
-            value={editedEvent.date}
-            onChange={(e) => handleChange("date", e.target.value)}
-          />
+          <>
+            <input
+              value={editedEvent.startDate}
+              onChange={(e) => handleChange("startDate", e.target.value)}
+            />
+            {" to "}
+            <input
+              value={editedEvent.endDate}
+              onChange={(e) => handleChange("endDate", e.target.value)}
+            />
+          </>
         ) : (
-          formatEventDate(event.date)
+          formatDateRange(event.startDate, event.endDate)
         )}
       </p>
 
-      <p>
-        <strong>Location:</strong>{" "}
+      <p><strong>Time:</strong> {event.startTime} – {event.endTime}</p>
+
+      <p><strong>Location:</strong>{" "}
         {isEditing ? (
           <input
             value={editedEvent.location}
@@ -134,8 +158,7 @@ const EventDetail = ({ eventsData }) => {
         )}
       </p>
 
-      <p>
-        <strong>Address:</strong>{" "}
+      <p><strong>Address:</strong>{" "}
         {isEditing ? (
           <input
             value={editedEvent.address}
@@ -146,8 +169,7 @@ const EventDetail = ({ eventsData }) => {
         )}
       </p>
 
-      <p>
-        <strong>Category:</strong>{" "}
+      <p><strong>Category:</strong>{" "}
         {isEditing ? (
           <input
             value={editedEvent.category}
@@ -158,8 +180,7 @@ const EventDetail = ({ eventsData }) => {
         )}
       </p>
 
-      <p>
-        <strong>Description:</strong>{" "}
+      <p><strong>Description:</strong>{" "}
         {isEditing ? (
           <textarea
             value={editedEvent.description}
@@ -176,7 +197,7 @@ const EventDetail = ({ eventsData }) => {
           width="600"
           height="450"
           style={{ border: 0 }}
-          allowFullScreen=""
+          allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
@@ -191,12 +212,15 @@ const EventDetail = ({ eventsData }) => {
       )}
 
       <div className={styles.buttonGroup}>
-        {!isEditing && <button onClick={handleEdit}>Edit</button>}
-        {isEditing && (
+        {!isEditing ? (
+          <>
+            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </>
+        ) : (
           <>
             <button onClick={handleSave}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleDelete}>Delete</button>
           </>
         )}
       </div>
