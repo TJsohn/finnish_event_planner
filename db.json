@@ -15,20 +15,6 @@
       "endTime": "19:00"
     },
     {
-      "id": "2",
-      "title": "International Food Festival",
-      "location": "Espoo",
-      "address": "Otakaari 9",
-      "postalCode": "02150",
-      "startDate": "2025-07-12",
-      "endDate": "2025-07-12",
-      "description": "Local families share traditional dishes from their home countries.",
-      "category": "culture",
-      "imageUrl": "",
-      "startTime": "12:00",
-      "endTime": "18:00"
-    },
-    {
       "id": "3",
       "title": "Coffee & Stories Morning",
       "location": "Vantaa",
@@ -267,20 +253,6 @@
       "endTime": "20:00"
     },
     {
-      "id": "20",
-      "title": "Outdoor Concert in the Park",
-      "location": "Helsinki",
-      "address": "Mannerheimintie 13",
-      "postalCode": "00100",
-      "startDate": "2025-08-30",
-      "endDate": "2025-08-30",
-      "description": "Local acoustic musicians perform in an intimate park setting.",
-      "category": "entertainment",
-      "imageUrl": "",
-      "startTime": "16:00",
-      "endTime": "19:00"
-    },
-    {
       "id": "2f2c",
       "title": "BBQ",
       "date": "2025-06-06",
@@ -326,19 +298,19 @@
       "endDate": "2025-06-20"
     },
     {
-      "id": "9e19",
-      "title": "Potluck",
+      "id": "f530",
+      "title": "Babyshower",
       "date": "2025-06-07",
       "address": "Atlantinkatu 12A",
       "postalCode": "00220",
       "location": "Helsinki",
-      "description": "potluck",
+      "description": "baby shower",
       "category": "entertainment",
-      "startTime": "11:35",
-      "endTime": "12:35",
+      "startTime": "19:22",
+      "endTime": "20:24",
       "imageUrl": "",
-      "startDate": "2025-06-07",
-      "endDate": "2025-06-07"
+      "startDate": "2025-06-13",
+      "endDate": "2025-06-13"
     }
   ]
 }
