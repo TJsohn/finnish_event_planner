@@ -1,20 +1,54 @@
-body {
-  background-color: white;
+.eventListContainer h2 {
+  font-size: 1.75rem;
 }
 
 .heroBannerWrapper {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
+  background-color: #ccc7c7;
+  padding: 30px 0;
+}
+
+.heroBannerWrapper h1 {
+  margin: 0;
+}
+
+.heroBannerWrapper p {
+  font-size: 0.9rem;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 24px;
+}
+
+.categoryListWrapper {
+  padding: 30px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .categoryListContainer {
   display: flex;
-  gap: 40px;
+  gap: 30px;
   flex-wrap: wrap;
 }
+
+.eventCardWrapper {
+  padding: 0 48px 30px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .eventCardContainer {
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
+  gap: 2.5rem;
 }

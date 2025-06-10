@@ -1,18 +1,19 @@
 import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import styles from "./EventDetail.module.css";
+import { supportedCategory } from "../../data/categories";
 
 const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
 
 const EventDetail = ({ onDeleteEvent }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [event, setEvent] = useState(null);
   const [editedEvent, setEditedEvent] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const todayStr = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -47,6 +48,7 @@ const EventDetail = ({ onDeleteEvent }) => {
   }, [id]);
 
   const handleEdit = () => setIsEditing(true);
+
   const handleCancel = () => {
     setEditedEvent(event);
     setIsEditing(false);
@@ -57,6 +59,18 @@ const EventDetail = ({ onDeleteEvent }) => {
   };
 
   const handleSave = async () => {
+    const { startDate, endDate } = editedEvent;
+
+    if (startDate < todayStr || endDate < todayStr) {
+      alert("Event dates cannot be in the past.");
+      return;
+    }
+
+    if (startDate > endDate) {
+      alert("Start date cannot be after end date.");
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:3001/events/${id}`, {
         method: "PATCH",
@@ -99,13 +113,8 @@ const EventDetail = ({ onDeleteEvent }) => {
       : `${format(start)} – ${format(end)}`;
   };
 
-  if (loading) {
-    return <div className={styles.container}>Loading event...</div>;
-  }
-
-  if (!event) {
-    return <div className={styles.container}>Event not found.</div>;
-  }
+  if (loading) return <div className={styles.container}>Loading event...</div>;
+  if (!event) return <div className={styles.container}>Event not found.</div>;
 
   const address = encodeURIComponent(editedEvent.address || "");
 
@@ -131,13 +140,17 @@ const EventDetail = ({ onDeleteEvent }) => {
         {isEditing ? (
           <>
             <input
+              type="date"
               value={editedEvent.startDate}
               onChange={(e) => handleChange("startDate", e.target.value)}
+              min={todayStr}
             />
             {" to "}
             <input
+              type="date"
               value={editedEvent.endDate}
               onChange={(e) => handleChange("endDate", e.target.value)}
+              min={todayStr}
             />
           </>
         ) : (
@@ -171,12 +184,20 @@ const EventDetail = ({ onDeleteEvent }) => {
 
       <p><strong>Category:</strong>{" "}
         {isEditing ? (
-          <input
+          <select
             value={editedEvent.category}
             onChange={(e) => handleChange("category", e.target.value)}
-          />
+          >
+            {Object.entries(supportedCategory).map(([key, label]) =>
+              key === "all" ? null : (
+                <option key={key} value={key}>
+                  {label}
+                </option>
+              )
+            )}
+          </select>
         ) : (
-          event.category
+          supportedCategory[event.category] || event.category
         )}
       </p>
 

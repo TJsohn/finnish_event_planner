@@ -15,20 +15,6 @@
       "endTime": "19:00"
     },
     {
-      "id": "2",
-      "title": "International Food Festival",
-      "location": "Espoo",
-      "address": "Otakaari 9",
-      "postalCode": "02150",
-      "startDate": "2025-07-12",
-      "endDate": "2025-07-12",
-      "description": "Local families share traditional dishes from their home countries.",
-      "category": "culture",
-      "imageUrl": "",
-      "startTime": "12:00",
-      "endTime": "18:00"
-    },
-    {
       "id": "3",
       "title": "Coffee & Stories Morning",
       "location": "Vantaa",
@@ -267,18 +253,64 @@
       "endTime": "20:00"
     },
     {
-      "id": "20",
-      "title": "Outdoor Concert in the Park",
+      "id": "2f2c",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Erottajankatu 7",
+      "postalCode": "00130",
       "location": "Helsinki",
-      "address": "Mannerheimintie 13",
-      "postalCode": "00100",
-      "startDate": "2025-08-30",
-      "endDate": "2025-08-30",
-      "description": "Local acoustic musicians perform in an intimate park setting.",
+      "description": "BBQ",
       "category": "entertainment",
+      "startTime": "16:50",
+      "endTime": "22:53",
       "imageUrl": "",
-      "startTime": "16:00",
-      "endTime": "19:00"
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06"
+    },
+    {
+      "id": "53bc",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Atlantinkatu 12",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "culture",
+      "startTime": "20:10",
+      "endTime": "23:09",
+      "imageUrl": "",
+      "startDate": "2025-06-06",
+      "endDate": "2025-06-06"
+    },
+    {
+      "id": "ec11",
+      "title": "BBQ",
+      "date": "2025-06-06",
+      "address": "Mechelininkatu 12",
+      "postalCode": "00100",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "entertainment",
+      "startTime": "17:39",
+      "endTime": "23:45",
+      "imageUrl": "https://images.pexels.com/photos/53148/shish-kebab-meat-skewer-vegetable-skewer-meat-products-53148.jpeg",
+      "startDate": "2025-06-20",
+      "endDate": "2025-06-20"
+    },
+    {
+      "id": "f530",
+      "title": "Babyshower",
+      "date": "2025-06-07",
+      "address": "Atlantinkatu 12A",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "baby shower",
+      "category": "entertainment",
+      "startTime": "19:22",
+      "endTime": "20:24",
+      "imageUrl": "",
+      "startDate": "2025-06-13",
+      "endDate": "2025-06-13"
     }
   ]
 }
