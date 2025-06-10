@@ -12,8 +12,10 @@
   overflow: hidden;
 }
 
-.eventCard:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+.eventCard:hover .eventImage {
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(56, 182, 255, 0.25);
+  z-index: 1;
 }
 
 .categoryItem {
@@ -54,10 +56,11 @@
 .eventImage {
   width: 100%;
   aspect-ratio: 16/9;
-  /* height: 260px; */
   object-fit: cover;
   display: block;
   background: #eee;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .eventCard h2 {
