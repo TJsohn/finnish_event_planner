@@ -1,16 +1,22 @@
 .formContainer {
   max-width: 700px;
   margin: 40px auto;
-  background: #fff;
+  background: var(--color-bg-dark-all);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-glow);
   padding: 32px 24px;
 }
+
+
+
+
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  background: var(--color-bg-dark-all)
+
 }
 
 .row {
@@ -30,7 +36,7 @@ label {
   margin-left: 8px;
   margin-right: 2px;
   font-weight: 600;
-  color: #22223b;
+  color: var(--color-text);
   text-align: left;
 }
 
@@ -38,7 +44,8 @@ label {
 .inputMedium,
 .inputLarge,
 select,
-textarea {
+textarea
+{
   border: 1px solid #c9c9c9;
   border-radius: 6px;
   padding: 10px 12px;
@@ -110,6 +117,7 @@ textarea:focus {
     margin: 16px 0;
     max-width: 100%;
     border-radius: 10px;
+    
   }
   .form {
     gap: 10px;

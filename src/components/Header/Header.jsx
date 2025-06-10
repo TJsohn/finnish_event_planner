@@ -5,9 +5,13 @@ import AuthModal from "../AuthModal/AuthModal";
 
 import flower from "../../assets/images/logo-flower.svg";
 import textLogo from "../../assets/images/text-logo-static.svg";
+import { ThemeContext } from "../../ThemeContext";
+import { useContext } from "react";
+
 
 const Header = () => {
   const [modalType, setModalType] = useState(null);
+   const { lightMode, toggleTheme } = useContext(ThemeContext);
 
   return (
     <>
@@ -50,6 +54,11 @@ const Header = () => {
             Sign Up
           </button>
         </div>
+        <div>
+        <button className={styles.moodBtn} onClick={toggleTheme}>
+          {lightMode ? "🌙 " : "🔆"}
+        </button>
+      </div>
       </header>
 
       {modalType && (
