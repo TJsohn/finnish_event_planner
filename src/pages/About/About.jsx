@@ -48,7 +48,7 @@ function About() {
 
         <h2>Our Mission:</h2>
         <p>To inspire experiences of fearlessness.</p>
-        <p>
+        
         <h2 className={styles.abouth2}>Our Mission:</h2>
         <p className={styles.content}>
           To inspire experiences of fearlessness.
