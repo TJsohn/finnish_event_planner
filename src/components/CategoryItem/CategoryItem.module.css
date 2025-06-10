@@ -1,6 +1,6 @@
 .categoryItem {
   cursor: pointer;
-  border: 1px solid #e396a1;
+  border: 1px solid #ebd61d;
   border-radius: 12px;
   padding: 8px 16px;
   display: flex;
@@ -12,14 +12,15 @@
 }
 
 .categoryItem:hover {
-  background-color: #dfb6bd;
+  background-color: var(--color-primary);
+  color: black;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(246, 182, 192, 0.3);
 }
 
 .categoryItem.active {
-  background-color: #e396a1;
-  /* border-color: #e91e63; */
+  background-color: var(--color-primary);
+  color: black;
 }
 
 @media (max-width: 375px) {
@@ -28,13 +29,12 @@
     font-size: 0.75rem;
     gap: 6px;
     min-width: 60px;
-
     border-width: 1.5px;
   }
 
   .categoryItem:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(246, 182, 192, 0.25);
+    box-shadow: 0 2px 8px rgba(44, 45, 14, 0.25);
   }
 }
 

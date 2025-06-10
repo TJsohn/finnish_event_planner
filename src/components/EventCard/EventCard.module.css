@@ -34,7 +34,7 @@
     calc(100% - 50px) 100%,
     0 100%
   );
-  width: 60%;
+  width: 55%;
   height: 40px;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@
 }
 
 .button:hover {
-  border-bottom: 1px dotted black;
+  border-bottom: 1px dotted var(--color-text-dark);
   font-weight: 600;
 }
 

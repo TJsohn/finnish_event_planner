@@ -3,22 +3,49 @@
 }
 
 .heroBannerWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ccc7c7;
+  justify-content: center;
+  height: 60vh;
   padding: 30px 0;
+  gap: 1rem;
+}
+.heroBannerWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/src/assets/images/events-banner.jpg);
+  background-position: center 55%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  filter: brightness(0.6);
 }
 
 .heroBannerWrapper h1 {
   margin: 0;
   font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
 }
 
 .heroBannerWrapper p {
   font-size: 0.9rem;
   margin: 0;
   max-width: 600px;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
 }
 
 .searchContainer {
@@ -26,25 +53,39 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 24px;
+  z-index: 1;
+  position: relative;
 }
 
 .searchContainer label {
+  color: #ffffff;
   font-family: inherit;
   font-size: 0.85rem;
-  font-weight: 400;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .searchContainer input {
   font-family: inherit;
   font-size: 0.85rem;
+  color: #151515;
   margin: 0;
   padding: 6px 12px;
-  border: 1px solid #adabab;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.searchContainer input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .categoryListWrapper {
-  padding: 30px 48px;
+  padding: 30px 50px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -58,7 +99,7 @@
 }
 
 .eventCardWrapper {
-  padding: 0 48px 30px 48px;
+  padding: 0 50px 30px 50px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -68,7 +109,7 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 3.5rem;
 }
 
 @media (max-width: 375px) {
@@ -228,12 +269,12 @@
   }
 
   .eventCardWrapper {
-    padding: 0 30px 25px 30px;
+    padding: 0 36px 25px 36px;
     gap: 1.25rem;
   }
 
   .eventCardContainer {
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .eventCardContainer p {
