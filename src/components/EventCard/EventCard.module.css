@@ -1,6 +1,6 @@
 .eventCard {
-  background: #fff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  background: var(--color-bg-dark-all);
+  box-shadow: var(--shadow-glow);
   /* width: 360px; */
   width: 30%;
   display: flex;
@@ -13,7 +13,7 @@
 }
 
 .eventCard:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow-glow);
 }
 
 .categoryItem {
@@ -63,14 +63,14 @@
 .eventCard h2 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #111;
+  color: var(--color-text);
   /* margin: 28px 24px 12px 24px; */
   line-height: 1.2;
 }
 
 .categoryEmojis p {
   margin: 0 18px 8px 18px;
-  color: #444;
+  color: var(--font-text-grey-strong);
   font-size: 1rem;
 }
 
@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #444;
+  color: var(--font-text-grey);
   font-size: 1.1rem;
 
   /* margin: 0 24px 8px 24px; */
