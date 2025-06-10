@@ -1,7 +1,7 @@
 .categoryItem {
   cursor: pointer;
   border: 2px solid pink;
-  border-radius: 8px;
+  border-radius: 20px;
   padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;

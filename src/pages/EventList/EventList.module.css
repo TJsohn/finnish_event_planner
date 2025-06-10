@@ -25,6 +25,19 @@
   margin-top: 24px;
 }
 
+.searchContainer label {
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.searchContainer input {
+  font-family: inherit;
+  font-size: 0.85rem;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
 .categoryListWrapper {
   padding: 30px 48px;
   display: flex;
@@ -51,4 +64,128 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 2.5rem;
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  .eventListContainer h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .heroBannerWrapper {
+    padding: 22px 18px;
+  }
+
+  .heroBannerWrapper h1 {
+    font-size: 2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .heroBannerWrapper p {
+    font-size: 0.95rem;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .searchContainer {
+    margin-top: 18px;
+    max-width: 320px;
+  }
+
+  .searchContainer label {
+    font-size: 0.82rem;
+  }
+
+  .searchContainer input {
+    font-size: 0.87rem;
+    padding: 7px 11px;
+  }
+
+  .categoryListWrapper {
+    padding: 22px 18px;
+    gap: 1.1rem;
+  }
+
+  .categoryListContainer {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .eventCardWrapper {
+    padding: 0 18px 22px 18px;
+    gap: 1.1rem;
+  }
+
+  .eventCardContainer {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCardContainer p {
+    font-size: 1.02rem;
+    margin: 1.6rem 0;
+    padding: 0 12px;
+  }
+}
+
+/* Tablet - iPad and similar (481px - 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .eventListContainer h2 {
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .heroBannerWrapper {
+    padding: 25px 20px;
+  }
+
+  .heroBannerWrapper h1 {
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .heroBannerWrapper p {
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
+    max-width: 500px;
+  }
+
+  .searchContainer {
+    margin-top: 20px;
+    max-width: 350px;
+  }
+
+  .searchContainer label {
+    font-size: 0.85rem;
+  }
+
+  .searchContainer input {
+    font-size: 0.9rem;
+    padding: 7px 12px;
+  }
+
+  .categoryListWrapper {
+    padding: 25px 30px;
+    gap: 1.25rem;
+  }
+
+  .categoryListContainer {
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .eventCardWrapper {
+    padding: 0 30px 25px 30px;
+    gap: 1.25rem;
+  }
+
+  .eventCardContainer {
+    gap: 2rem;
+    justify-content: flex-start;
+  }
+
+  .eventCardContainer p {
+    font-size: 1.05rem;
+    margin: 1.75rem 0;
+  }
 }
