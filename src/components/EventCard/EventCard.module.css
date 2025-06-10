@@ -44,18 +44,17 @@
 }
 
 .categoryEmojis {
-  font-size: 25px;
+  font-size: 1.2rem;
 }
 
 .categoryText {
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: #22223b;
   font-weight: 600;
 }
 
 .eventImage {
   width: 100%;
-  aspect-ratio: 16/9;
   object-fit: cover;
   display: block;
   background: #eee;
@@ -64,10 +63,11 @@
 }
 
 .eventCard h2 {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.2;
+  margin: 0;
 }
 
 .categoryEmojis p {
@@ -81,7 +81,7 @@
   align-items: center;
   gap: 10px;
   color: var(--font-text-grey);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .eventCardInfoContainer {
@@ -92,7 +92,7 @@
 }
 
 .eventInfoIcon {
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   margin-right: 6px;
   color: #444;
 }
@@ -102,11 +102,14 @@
   align-items: center;
   gap: 10px;
   color: #888;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .button {
-  display: done;
+  display: block;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: inherit;
 }
 
 .button:hover {
@@ -125,41 +128,165 @@
 @media (max-width: 375px) {
   .eventCard {
     width: 100%;
-    margin: 12px 0;
-    padding: 0 0 16px 0;
+    border-radius: 8px;
   }
-  .eventImage {
-    height: 120px;
+
+  .categoryItem {
+    height: 35px;
+    width: 60%;
+    padding-left: 10px;
+    gap: 8px;
   }
-  h2 {
+
+  .categoryEmojis {
     font-size: 1rem;
-    margin: 16px 12px 8px 12px;
   }
-  p,
+
+  .categoryText {
+    font-size: 0.7rem;
+  }
+
+  .eventImage {
+    height: 140px;
+  }
+
+  .eventCardInfoContainer {
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .eventCard h2 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
   .eventInfo,
   .locationInfo {
-    font-size: 0.95rem;
-    margin: 0 12px 6px 12px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .eventInfoIcon {
+    font-size: 0.85rem;
+    margin-right: 4px;
+  }
+
+  .footer {
+    padding: 0.6rem 1rem;
+  }
+
+  .button {
+    font-size: 0.75rem;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 376px) and (max-width: 480px) {
   .eventCard {
-    width: 90%;
-    margin: 18px auto;
-    padding: 0 0 20px 0;
+    width: 100%;
+    border-radius: 12px;
   }
+
+  .categoryItem {
+    height: 38px;
+    width: 62%;
+    padding-left: 10px;
+    gap: 9px;
+  }
+
+  .categoryEmojis {
+    font-size: 1.1rem;
+  }
+
+  .categoryText {
+    font-size: 0.75rem;
+  }
+
+  .eventImage {
+    height: 160px;
+  }
+
+  .eventCardInfoContainer {
+    padding: 0 1.1rem;
+    gap: 0.8rem;
+  }
+
+  .eventCard h2 {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .eventInfo,
+  .locationInfo {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .eventInfoIcon {
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  .footer {
+    padding: 0.65rem 1.1rem;
+  }
+
+  .button {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .eventCard {
+    width: 45%;
+    margin: 0 0 1.5rem 0;
+    border-radius: 12px;
+  }
+
+  .categoryItem {
+    height: 42px;
+    width: 58%;
+    padding-left: 14px;
+    gap: 10px;
+  }
+
+  .categoryEmojis {
+    font-size: 1.1rem;
+  }
+
+  .categoryText {
+    font-size: 0.8rem;
+  }
+
   .eventImage {
     height: 180px;
   }
-  h2 {
-    font-size: 1.2rem;
-    margin: 20px 18px 10px 18px;
+
+  .eventCardInfoContainer {
+    padding: 0 1.25rem;
+    gap: 1rem;
   }
-  p,
+
+  .eventCard h2 {
+    font-size: 1.1rem;
+    line-height: 1.25;
+  }
+
   .eventInfo,
   .locationInfo {
-    font-size: 1rem;
-    margin: 0 18px 7px 18px;
+    font-size: 0.9rem;
+    gap: 9px;
+  }
+
+  .eventInfoIcon {
+    font-size: 0.9rem;
+    margin-right: 5px;
+  }
+
+  .footer {
+    padding: 0.7rem 1.25rem;
+  }
+
+  .button {
+    font-size: 0.85rem;
   }
 }
