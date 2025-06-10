@@ -2,28 +2,32 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
-  background-color: #f0f2f5;
+  background-color: var(--color-bg-dark-all);
   min-height: 100vh;
 }
 
 .contentContainer {
   width: 80%;
-  background-color: white;
+  background-color: var(--color-bg-dark-all);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-glow);
   box-sizing: border-box;
-  color: #333;
+  color: var(--color-text);
+}
+.abouth1,
+.abouth2 {
+  color: (--color-text) !important;
 }
 
-/* h1,
-h2 {
-  color: #1d3557;
+.abouth1{
+  font-size: 2.5em;
 }
 
-p {
+.content {
   line-height: 1.6;
-} */
+  color: var(--color-text);
+}
 
 .imageContainer {
   display: flex;
@@ -67,19 +71,20 @@ p {
   width: 270px;
   padding: 0.8rem;
   margin: 0.7rem;
-  background-color: #ffffff;
+  background-color: var(--color-bg-dark-all);
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-glow);
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--color-text);
 }
 
 .contactCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-glow);
 }
 
 .profilePic {

@@ -9,12 +9,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-bg-dark);
+  background-color: #151515;
   padding: 0.5rem 2rem;
   font-family: var(--font-main);
   font-weight: 400;
   font-style: normal;
-  color: var(--color-text);
+  color: #ffffff;
   position: relative;
   min-height: 84px;
   height: auto;
@@ -116,7 +116,7 @@
 
 .navLink:hover,
 .navLink:focus {
-  color: var(--color-text);
+  color: #ffffff;
   text-shadow: var(--shadow-glow);
 }
 
@@ -127,7 +127,7 @@
 
 .authButton {
   text-decoration: none;
-  color: var(--color-text);
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 400;
   font-style: normal;
@@ -154,6 +154,10 @@
 .authButtonSignup:hover {
   background-color: var(--color-primary-hover);
   animation: pulse 1.2s infinite;
+}
+
+.moodBtn{
+  margin-left: 1rem;
 }
 
 @keyframes pulse {
