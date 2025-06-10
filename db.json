@@ -311,6 +311,21 @@
       "imageUrl": "",
       "startDate": "2025-06-13",
       "endDate": "2025-06-13"
+    },
+    {
+      "id": "aa1b",
+      "title": "Sauna",
+      "date": "2025-06-09",
+      "address": "Mechelininkatu 12",
+      "postalCode": "00100",
+      "location": "Helsinki",
+      "description": "SAuna",
+      "category": "entertainment",
+      "startTime": "13:14",
+      "endTime": "14:17",
+      "imageUrl": "",
+      "startDate": "2025-06-11",
+      "endDate": "2025-06-13"
     }
   ]
 }
