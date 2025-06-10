@@ -128,7 +128,6 @@
   }
 }
 
-/* Tablet - iPad and similar (481px - 1024px) */
 @media (min-width: 481px) and (max-width: 1024px) {
   .eventListContainer h2 {
     font-size: 1.6rem;
