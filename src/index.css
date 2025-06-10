@@ -37,9 +37,8 @@
   --color-button-text: #26233c;
   --shadow-glow: 0 0 6px rgba(255, 255, 255, 0.8);
   --font-main: "Lydia Sans", sans-serif;
-  --font-text-grey:  #ffffff;
-  --font-text-grey-strong:  #ffffff;
-
+  --font-text-grey: #ffffff;
+  --font-text-grey-strong: #ffffff;
 }
 
 html {
@@ -90,7 +89,13 @@ body.light-mode {
   --shadow-glow: 0 0 6px rgba(95, 93, 93, 0.8);
   --font-text-grey: #555;
   --font-text-grey-strong: #333;
-
+}
+body:not(.light-mode) input,
+body:not(.light-mode) select,
+body:not(.light-mode) textarea {
+  background: var(--color-bg-dark);
+  color: var(--color-text);
+  border: 1px solid #444;
 }
 
 body {
