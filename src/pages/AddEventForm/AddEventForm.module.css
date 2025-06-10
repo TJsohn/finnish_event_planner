@@ -7,16 +7,11 @@
   padding: 32px 24px;
 }
 
-
-
-
-
 .form {
   display: flex;
   flex-direction: column;
   gap: 18px;
   background: var(--color-bg-dark-all)
-
 }
 
 .row {
@@ -117,7 +112,6 @@ textarea:focus {
     margin: 16px 0;
     max-width: 100%;
     border-radius: 10px;
-    
   }
   .form {
     gap: 10px;

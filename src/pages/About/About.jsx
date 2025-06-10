@@ -45,12 +45,10 @@ function About() {
           location, or type, then dive right into something that makes you
           happy.
         </p>
-        <h2 className={styles.abouth2}>Buy Tickets Seamlessly:</h2>
-        <p className={styles.content}>
-          Use our safe, easy-to-use system to buy and manage tickets. Get
-          immediate confirmations and see your tickets from anywhere at any
-          time.
-        </p>
+
+        <h2>Our Mission:</h2>
+        <p>To inspire experiences of fearlessness.</p>
+        <p>
         <h2 className={styles.abouth2}>Our Mission:</h2>
         <p className={styles.content}>
           To inspire experiences of fearlessness.
