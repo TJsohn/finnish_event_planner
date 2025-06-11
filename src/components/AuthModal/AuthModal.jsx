@@ -22,8 +22,7 @@ const AuthModal = ({ type, onClose }) => {
       alert("Passwords do not match!");
       return;
     }
-
-    console.log(`${type} form submitted`, formData);
+    // sweet alert for successful login/signup
     onClose();
   };
 
