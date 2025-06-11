@@ -1,10 +1,12 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import { useNavigate } from "react-router";
 import useAxios from "./../../hooks/useAxios";
 import styles from "./AddEventForm.module.css";
+import { ThemeContext } from "../../ThemeContext";
 
 const AddEventForm = ({onAddEvent}) => {
   const { post } = useAxios();
+  const { lightMode } = useContext(ThemeContext);
   const today = new Date().toISOString().split('T')[0];
   const [successMessage, setSuccessMessage] = useState('');
 
@@ -62,7 +64,8 @@ const AddEventForm = ({onAddEvent}) => {
     };
 
   return (
-    <>
+    <div className={`${styles.page} ${lightMode ? styles.light : styles.dark}`}>
+    
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
 
@@ -118,7 +121,7 @@ const AddEventForm = ({onAddEvent}) => {
 
         <div className={styles.row}>
           <label htmlFor="description">Description</label>
-          <textarea className={styles.inputLarge} type="text" placeholder="Description of event" rows={30} value={formData.description} onChange={handleChange} id="description" name="description" required />
+          <textarea className={styles.inputLarge} type="text" placeholder="Description of event" rows={15} value={formData.description} onChange={handleChange} id="description" name="description" required />
         </div>
 
           <label htmlFor="imageUrl">Event Image</label>
@@ -130,7 +133,7 @@ const AddEventForm = ({onAddEvent}) => {
           )}
       </form>
         </div>
-    </>
+    </div>
   );
 };
 
