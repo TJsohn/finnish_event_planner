@@ -112,7 +112,7 @@ const Footer = ({ year = new Date().getFullYear() }) => {
           <span className={styles.footerHover}>Cookies Management</span>
         </p>
 
-          <p className={styles.footerNote}>&copy; {year} FREYDIS EVENT PLANER</p>
+          <p className={styles.footerNote}>&copy; {year} FREYDIS EVENT PLANNER</p>
         </div>
       </div>
     </footer>

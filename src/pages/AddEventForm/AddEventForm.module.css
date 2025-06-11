@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  background: var(--color-bg-dark-all)
+  background: var(--color-bg-dark-all);
 }
 
 .row {
@@ -87,6 +87,10 @@ textarea:focus {
   font-weight: 700;
   cursor: pointer;
   margin-top: 12px;
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   transition: background 0.2s;
 }
 
@@ -108,9 +112,9 @@ textarea:focus {
 
 @media (max-width: 375px) {
   .formContainer {
-    padding: 16px 4px;
-    margin: 16px 0;
-    max-width: 100%;
+    padding: 32px 16px;
+    margin: 16px auto;
+    max-width: 95%;
     border-radius: 10px;
   }
   .form {
@@ -131,6 +135,11 @@ textarea:focus {
     min-width: 0;
     width: 100%;
     padding: 8px 8px;
+  }
+  .inputLarge,
+  textarea {
+    min-height: 200px;
+    height: 200px;
   }
   .submitBtn {
     font-size: 1rem;
