@@ -39,7 +39,8 @@ label {
 .inputMedium,
 .inputLarge,
 select,
-textarea {
+textarea
+{
   border: 1px solid #c9c9c9;
   border-radius: 6px;
   padding: 10px 12px;
