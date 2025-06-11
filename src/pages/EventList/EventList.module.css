@@ -3,19 +3,49 @@
 }
 
 .heroBannerWrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ccc7c7;
+  justify-content: center;
+  height: 60vh;
   padding: 30px 0;
+  gap: 1rem;
+}
+.heroBannerWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/src/assets/images/events-banner.jpg);
+  background-position: center 55%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  filter: brightness(0.6);
 }
 
 .heroBannerWrapper h1 {
   margin: 0;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
 }
 
 .heroBannerWrapper p {
   font-size: 0.9rem;
+  margin: 0;
+  max-width: 600px;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
+  z-index: 1;
+  position: relative;
 }
 
 .searchContainer {
@@ -23,10 +53,39 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 24px;
+  z-index: 1;
+  position: relative;
+}
+
+.searchContainer label {
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.searchContainer input {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: #151515;
+  margin: 0;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.searchContainer input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .categoryListWrapper {
-  padding: 30px 48px;
+  padding: 30px 50px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -35,12 +94,12 @@
 
 .categoryListContainer {
   display: flex;
-  gap: 30px;
+  gap: 1.75rem;
   flex-wrap: wrap;
 }
 
 .eventCardWrapper {
-  padding: 0 48px 30px 48px;
+  padding: 0 50px 30px 50px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -50,5 +109,175 @@
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 3.5rem;
+}
+
+@media (max-width: 375px) {
+  .eventListContainer h2 {
+    font-size: 1.4rem;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .heroBannerWrapper {
+    padding: 20px 15px;
+  }
+
+  .heroBannerWrapper h1 {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .heroBannerWrapper p {
+    font-size: 0.8rem;
+    margin: 0 0 0.75rem 0;
+    text-align: center;
+  }
+
+  .searchContainer {
+    max-width: 280px;
+  }
+
+  .searchContainer label {
+    font-size: 0.8rem;
+  }
+
+  .searchContainer input {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .categoryListWrapper {
+    padding: 20px 15px;
+    gap: 1rem;
+  }
+
+  .categoryListContainer {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .eventCardWrapper {
+    padding: 0 20px 20px 20px;
+    gap: 1rem;
+  }
+
+  .eventCardContainer {
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCardContainer p {
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  .eventListContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .heroBannerWrapper {
+    padding: 20px 16px;
+  }
+
+  .heroBannerWrapper h1 {
+    font-size: 2rem;
+  }
+
+  .heroBannerWrapper p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .searchContainer {
+    max-width: 320px;
+  }
+
+  .searchContainer label {
+    font-size: 0.82rem;
+    margin: 0;
+  }
+
+  .searchContainer input {
+    font-size: 0.87rem;
+    padding: 8px 12px;
+  }
+
+  .categoryListWrapper {
+    padding: 22px 16px;
+    gap: 1.1rem;
+  }
+
+  .categoryListContainer {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .eventCardWrapper {
+    padding: 0 18px 20px 20px;
+    gap: 1.1rem;
+  }
+
+  .eventCardContainer {
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCardContainer p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .eventListContainer h2 {
+    font-size: 1.8rem;
+  }
+
+  .heroBannerWrapper h1 {
+    font-size: 2.2rem;
+  }
+
+  .heroBannerWrapper p {
+    font-size: 0.95rem;
+    max-width: 500px;
+  }
+
+  .searchContainer {
+    max-width: 350px;
+  }
+
+  .searchContainer label {
+    font-size: 0.85rem;
+  }
+
+  .searchContainer input {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .categoryListWrapper {
+    padding: 25px 30px;
+    gap: 1.25rem;
+  }
+
+  .categoryListContainer {
+    gap: 1.2rem;
+  }
+
+  .eventCardWrapper {
+    padding: 0 36px 25px 36px;
+    gap: 1.25rem;
+  }
+
+  .eventCardContainer {
+    gap: 2.5rem;
+  }
+
+  .eventCardContainer p {
+    font-size: 1.05rem;
+  }
 }
