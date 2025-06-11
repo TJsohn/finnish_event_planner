@@ -225,20 +225,6 @@
       "endTime": "20:30"
     },
     {
-      "id": "18",
-      "title": "Island Hopping Day Trip",
-      "location": "Helsinki",
-      "address": "Kauppatori",
-      "postalCode": "00170",
-      "startDate": "2025-07-20",
-      "endDate": "2025-07-20",
-      "description": "Small group boat trip exploring nearby archipelago islands.",
-      "category": "travel",
-      "imageUrl": "",
-      "startTime": "09:00",
-      "endTime": "17:00"
-    },
-    {
       "id": "19",
       "title": "Community Potluck Dinner",
       "location": "Espoo",
@@ -251,6 +237,21 @@
       "imageUrl": "",
       "startTime": "17:00",
       "endTime": "20:00"
+    },
+    {
+      "id": "ddec",
+      "title": "BBQ",
+      "date": "2025-06-11",
+      "address": "Atlantinkatu 12A",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "entertainment",
+      "startTime": "14:30",
+      "endTime": "15:31",
+      "imageUrl": "",
+      "startDate": "2025-06-13",
+      "endDate": "2025-06-20"
     }
   ]
 }
