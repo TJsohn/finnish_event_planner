@@ -1,11 +1,15 @@
 import { useParams, useNavigate } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./EventDetail.module.css";
 import { supportedCategory } from "../../data/categories";
+import Icon from "../../components/Icon";
+import { ThemeContext } from "../../ThemeContext";
 
-const defaultImageUrl = "https://cdn.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg";
+const defaultImageUrl =
+  "https://cdn.pixabay.com/photo/2017/07/27/12/31/party-2545168_1280.jpg";
 
 const EventDetail = ({ onDeleteEvent }) => {
+  const { lightMode } = useContext(ThemeContext);
   const { id } = useParams();
   const navigate = useNavigate();
   const [event, setEvent] = useState(null);
@@ -13,6 +17,8 @@ const EventDetail = ({ onDeleteEvent }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [dateError, setDateError] = useState("");
+
   const todayStr = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
@@ -47,39 +53,40 @@ const EventDetail = ({ onDeleteEvent }) => {
     fetchEvent();
   }, [id]);
 
-  const handleEdit = () => setIsEditing(true);
+  const handleChange = (field, value) =>
+    setEditedEvent((prev) => ({ ...prev, [field]: value }));
 
+  const handleEdit = () => setIsEditing(true);
   const handleCancel = () => {
     setEditedEvent(event);
     setIsEditing(false);
   };
 
-  const handleChange = (field, value) => {
-    setEditedEvent((prev) => ({ ...prev, [field]: value }));
-  };
-
   const handleSave = async () => {
     const { startDate, endDate } = editedEvent;
 
+    setDateError("");
+
     if (startDate < todayStr || endDate < todayStr) {
-      alert("Event dates cannot be in the past.");
+      setDateError("Event dates cannot be in the past.");
       return;
     }
-
+  
     if (startDate > endDate) {
-      alert("Start date cannot be after end date.");
+      setDateError("Start date cannot be after end date.");
       return;
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/events/${id}`, {
+      const res = await fetch(`http://localhost:3001/events/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editedEvent),
       });
-      if (!response.ok) throw new Error("Failed to save changes");
 
-      const updated = await response.json();
+      if (!res.ok) throw new Error("Failed to save changes");
+      const updated = await res.json();
+
       setEvent(updated);
       setEditedEvent(updated);
       setIsEditing(false);
@@ -92,10 +99,10 @@ const EventDetail = ({ onDeleteEvent }) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
 
     try {
-      const response = await fetch(`http://localhost:3001/events/${id}`, {
+      const res = await fetch(`http://localhost:3001/events/${id}`, {
         method: "DELETE",
       });
-      if (!response.ok) throw new Error("Failed to delete event");
+      if (!res.ok) throw new Error("Failed to delete event");
 
       if (onDeleteEvent) onDeleteEvent(id);
       navigate("/events");
@@ -105,146 +112,223 @@ const EventDetail = ({ onDeleteEvent }) => {
   };
 
   const formatDateRange = (start, end) => {
-    const format = (dateStr) =>
-      new Date(dateStr).toLocaleDateString("fi-FI");
-
-    return start === end
-      ? format(start)
-      : `${format(start)} – ${format(end)}`;
+    const format = (str) => new Date(str).toLocaleDateString("fi-FI");
+    return start === end ? format(start) : `${format(start)} – ${format(end)}`;
   };
 
-  if (loading) return <div className={styles.container}>Loading event...</div>;
-  if (!event) return <div className={styles.container}>Event not found.</div>;
+  const getConditionIconName = (condition) => {
+    const normalized = condition.toLowerCase();
+    if (normalized.includes("clear")) return "clear";
+    if (normalized.includes("cloud")) return "clouds";
+    if (normalized.includes("rain")) return "rain";
+    if (normalized.includes("snow")) return "snow";
+    if (normalized.includes("storm") || normalized.includes("thunder")) return "storm";
+    if (normalized.includes("wind")) return "wind";
+    if (!iconModule) return null;
+  };
+
+  if (loading) return <div className={styles.wrapper}>Loading event...</div>;
+  if (!event) return <div className={styles.wrapper}>Event not found.</div>;
 
   const address = encodeURIComponent(editedEvent.address || "");
 
   return (
-    <div className={styles.container}>
-      {isEditing ? (
-        <input
-          className={styles.titleInput}
-          value={editedEvent.title}
-          onChange={(e) => handleChange("title", e.target.value)}
-        />
-      ) : (
-        <h1>{event.title}</h1>
-      )}
-
-      <img
-        src={editedEvent.imageUrl || defaultImageUrl}
-        alt={event.title}
-        className={styles.eventImage}
-      />
-
-      <p><strong>Date:</strong>{" "}
-        {isEditing ? (
-          <>
+    <div className={`${styles.page} ${lightMode ? styles.light : styles.dark}`}>
+    <div className={styles.wrapper}>
+      <div className={styles.topSection}>
+        <div className={styles.leftColumn}>
+          {isEditing ? (
             <input
-              type="date"
-              value={editedEvent.startDate}
-              onChange={(e) => handleChange("startDate", e.target.value)}
-              min={todayStr}
+              className={styles.titleEditor}
+              value={editedEvent.title}
+              onChange={(e) => handleChange("title", e.target.value)}
             />
-            {" to "}
-            <input
-              type="date"
-              value={editedEvent.endDate}
-              onChange={(e) => handleChange("endDate", e.target.value)}
-              min={todayStr}
-            />
-          </>
-        ) : (
-          formatDateRange(event.startDate, event.endDate)
-        )}
-      </p>
+          ) : (
+            <h1 className={styles.heading}>{event.title}</h1>
+          )}
 
-      <p><strong>Time:</strong> {event.startTime} – {event.endTime}</p>
+          <div className={styles.infoGroup}>
 
-      <p><strong>Location:</strong>{" "}
-        {isEditing ? (
-          <input
-            value={editedEvent.location}
-            onChange={(e) => handleChange("location", e.target.value)}
+            <div className={styles.infoBox}>
+              <div className={styles.iconTextRow}>
+                <Icon name="date" alt="Calendar icon" className={styles.icon} />
+                <span className={styles.labelInline}>Date</span>
+              </div>
+              {isEditing ? (
+                <>
+                  <input
+                    type="date"
+                    className={styles.dateInput}
+                    value={editedEvent.startDate}
+                    onChange={(e) => handleChange("startDate", e.target.value)}
+                    min={todayStr}
+                  />
+                  {" to "}
+                  <input
+                    type="date"
+                    className={styles.dateInput}
+                    value={editedEvent.endDate}
+                    onChange={(e) => handleChange("endDate", e.target.value)}
+                    min={todayStr}
+                  />
+                  {dateError && <p className={styles.errorText}>{dateError}</p>}
+                </>
+              ) : (
+                <p>{formatDateRange(event.startDate, event.endDate)}</p>
+              )}
+            </div>
+
+            <div className={styles.infoBox}>
+            <div className={styles.iconTextRow}>
+              <Icon name="time" alt="Clock icon" className={styles.icon} />
+              <span className={styles.labelInline}>Time</span>
+            </div>
+              {isEditing ? (
+                <>
+                  <input
+                    type="time"
+                    className={styles.timeInput}
+                    value={editedEvent.startTime}
+                    onChange={(e) => handleChange("startTime", e.target.value)}
+                  />
+                  {" – "}
+                  <input
+                    type="time"
+                    className={styles.timeInput}
+                    value={editedEvent.endTime}
+                    onChange={(e) => handleChange("endTime", e.target.value)}
+                  />
+                </>
+              ) : (
+                <p>{`${event.startTime} – ${event.endTime}`}</p>
+              )}
+            </div>
+
+            <div className={styles.infoBox}>
+            <div className={styles.iconTextRow}>
+              <Icon name="location" alt="Location icon" className={styles.icon} />
+              <span className={styles.labelInline}>Location</span>
+            </div>
+              {isEditing ? (
+                <input
+                  className={styles.textInput}
+                  value={editedEvent.location}
+                  onChange={(e) => handleChange("location", e.target.value)}
+                />
+              ) : (
+                <p>{event.location}</p>
+              )}
+            </div>
+
+            <div className={styles.infoBox}>
+            <div className={styles.iconTextRow}>
+              <Icon name="address" alt="Address icon" className={styles.icon} />
+              <span className={styles.labelInline}>Address</span>
+            </div>
+              {isEditing ? (
+                <input
+                  className={styles.textInput}
+                  value={editedEvent.address}
+                  onChange={(e) => handleChange("address", e.target.value)}
+                />
+              ) : (
+                <p>{event.address}</p>
+              )}
+            </div>
+
+            <div className={styles.infoBox}>
+            <div className={styles.iconTextRow}>
+              <Icon name="category" alt="Category icon" className={styles.icon} />
+              <span className={styles.labelInline}>Category</span>
+            </div>
+              {isEditing ? (
+                <select
+                  className={styles.dropdown}
+                  value={editedEvent.category}
+                  onChange={(e) => handleChange("category", e.target.value)}
+                >
+                  {Object.entries(supportedCategory).map(([key, label]) =>
+                    key === "all" ? null : (
+                      <option key={key} value={key}>
+                        {label}
+                      </option>
+                    )
+                  )}
+                </select>
+              ) : (
+                <p>{supportedCategory[event.category] || event.category}</p>
+              )}
+            </div>
+
+            <div className={styles.infoBox}>
+            <div className={styles.iconTextRow}>
+              <Icon name="description" alt="Description icon" className={styles.icon} />
+              <span className={styles.labelInline}>Description</span>
+            </div>
+              {isEditing ? (
+                <textarea
+                  className={styles.textareaInput}
+                  value={editedEvent.description}
+                  onChange={(e) => handleChange("description", e.target.value)}
+                />
+              ) : (
+                <p>{event.description}</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.rightColumn}>
+          <img
+            src={editedEvent.imageUrl || defaultImageUrl}
+            alt={event.title}
+            className={styles.previewImage}
           />
-        ) : (
-          event.location
-        )}
-      </p>
 
-      <p><strong>Address:</strong>{" "}
-        {isEditing ? (
-          <input
-            value={editedEvent.address}
-            onChange={(e) => handleChange("address", e.target.value)}
-          />
-        ) : (
-          event.address
-        )}
-      </p>
-
-      <p><strong>Category:</strong>{" "}
-        {isEditing ? (
-          <select
-            value={editedEvent.category}
-            onChange={(e) => handleChange("category", e.target.value)}
-          >
-            {Object.entries(supportedCategory).map(([key, label]) =>
-              key === "all" ? null : (
-                <option key={key} value={key}>
-                  {label}
-                </option>
-              )
-            )}
-          </select>
-        ) : (
-          supportedCategory[event.category] || event.category
-        )}
-      </p>
-
-      <p><strong>Description:</strong>{" "}
-        {isEditing ? (
-          <textarea
-            value={editedEvent.description}
-            onChange={(e) => handleChange("description", e.target.value)}
-          />
-        ) : (
-          event.description
-        )}
-      </p>
-
-      <div className={styles.mapContainer}>
-        <iframe
-          src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=AIzaSyCsXViH5vbINPYFvG359obqMUDvPq-ub-0`}
-          width="600"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
+          {!isEditing ? (
+            <div className={styles.editDeleteWrap}>
+              <button className={`${styles.actionBtn} ${styles.editBtn}`} onClick={handleEdit}>Edit</button>
+              <button className={`${styles.actionBtn} ${styles.deleteBtn}`} onClick={handleDelete}>Delete</button>
+            </div>
+          ) : (
+            <div className={styles.saveCancelWrap}>
+              <button className={`${styles.actionBtn} ${styles.saveBtn}`} onClick={handleSave}>Save</button>
+              <button className={`${styles.actionBtn} ${styles.cancelBtn}`} onClick={handleCancel}>Cancel</button>
+            </div>
+          )}
+        </div>
       </div>
 
       {weather && (
-        <div className={styles.weatherContainer}>
-          <h2>Weather in {event.location}</h2>
-          <p><strong>Temperature:</strong> {weather.main.temp}°C</p>
-          <p><strong>Conditions:</strong> {weather.weather[0].description}</p>
+        <div className={styles.weatherMapRow}>
+          <div className={styles.weatherBox}>
+            <h2 className={styles.weatherTitle}>Weather in {event.location}</h2>
+            <div className={`${styles.iconTextRow} ${styles.weatherRow}`}>
+                <Icon name="temperature" alt="Temperature icon" className={styles.icon} />
+                <span className={styles.temperatureLabel}>
+                  Temperature: {weather.main.temp}°C
+                </span>
+                <Icon
+                name={getConditionIconName(weather.weather[0].description)}
+                alt="Weather icon"
+                className={styles.icon}
+                title={weather.weather[0].description}
+              />
+            </div>
+          </div>
+
+          <div className={styles.mapBox}>
+            <iframe
+              src={`https://www.google.com/maps/embed/v1/place?q=${address}&key=AIzaSyCsXViH5vbINPYFvG359obqMUDvPq-ub-0`}
+              width="100%"
+              height="100%"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       )}
-
-      <div className={styles.buttonGroup}>
-        {!isEditing ? (
-          <>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </>
-        ) : (
-          <>
-            <button onClick={handleSave}>Save</button>
-            <button onClick={handleCancel}>Cancel</button>
-          </>
-        )}
-      </div>
+    </div>
     </div>
   );
 };
