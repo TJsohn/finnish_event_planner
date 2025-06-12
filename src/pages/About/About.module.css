@@ -20,10 +20,19 @@
 .abouth1,
 .abouth2 {
   color: var(--color-text) !important;
+
 }
 
 .abouth1 {
   font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.abouth2 {
+  color: var(--color-text) !important;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+
 }
 
 .content {
@@ -106,6 +115,7 @@
 
   .abouth1 {
     font-size: 2.5em;
+
   }
 
   .imageContainer img {
