@@ -1,36 +1,65 @@
 import { Link } from "react-router";
 import styles from "./EventCard.module.css";
 import { emojisMap } from "../../data/emojisMap";
+import { supportedCategory } from "../../data/categories";
 
-const categoryLabels = {
-    culture: "Culture",
-    education: "Education",
-    sport: "Sport",
-    technology: "Technology",
-    entertainment: "Entertainment",
-    travel: "Travel",
-};
+const defaultImageUrl =
+  "https://cdn.pixabay.com/photo/2017/07/27/12/31/party-2545168_1280.jpg";
 
-const EventCard = ({ location, title, date, category, id }) => {
+function formatDate(dateStr) {
+  if (!dateStr) return "";
+  const date = new Date(dateStr);
+  return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+}
+
+function formatEventDate(startDate, endDate) {
+  if (!startDate) return "";
+  const formattedStart = formatDate(startDate);
+  const formattedEnd = formatDate(endDate);
+  if (!endDate || startDate === endDate) return formattedStart;
+  return `${formattedStart} - ${formattedEnd}`;
+}
+
+const EventCard = ({
+  location,
+  title,
+  startDate,
+  endDate,
+  category,
+  id,
+  imageUrl,
+}) => {
   return (
     <div className={styles.eventCard}>
-        <div className={styles.categoryContainer}>
-            <p className={styles.categoryEmojis}>{emojisMap[category]}</p>
-            <span className={styles.categoryText}>
-                {categoryLabels[category] || category}
-            </span>
-        </div>
+      <div className={styles.categoryItem}>
+        <span className={styles.categoryEmojis}>{emojisMap[category]}</span>
+        <span className={styles.categoryText}>
+          {supportedCategory[category] || category}
+        </span>
+      </div>
       <img
-        src="https://images.unsplash.com/photo-1652381210069-2e4b639b3585?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={imageUrl ? imageUrl : defaultImageUrl}
         alt={title}
         className={styles.eventImage}
       />
-      <h2>{title}</h2>
-      <p>{date}</p>
-      <p>{location}</p>
-      <Link className={styles.button} to="/events/details">
-        See details
-      </Link>
+
+      <div className={styles.eventCardInfoContainer}>
+        <h2>{title}</h2>
+        <div className={styles.eventInfo}>
+          <span className={styles.eventInfoIcon}>📅</span>
+          <span>{formatEventDate(startDate, endDate)}</span>
+        </div>
+        <div className={styles.locationInfo}>
+          <span className={styles.eventInfoIcon}>📍</span>
+          <span>{location}</span>
+        </div>
+      </div>
+
+      <div className={styles.footer}>
+        <Link className={styles.button} to={`/events/details/${id}`}>
+          See details
+        </Link>
+      </div>
     </div>
   );
 };

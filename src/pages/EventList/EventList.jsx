@@ -3,6 +3,7 @@ import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import styles from "./EventList.module.css";
 import EventCard from "../../components/EventCard/EventCard";
 import { supportedCategory } from "../../data/categories";
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
 function EventList({ eventsData }) {
   const [searchValue, setSearchValue] = useState("");
@@ -16,8 +17,8 @@ function EventList({ eventsData }) {
     const search = searchValue.toLowerCase();
 
     const matchesSearch =
-      (event.title.toLowerCase().includes(search) ||
-        event.location.toLowerCase().includes(search)) &&
+      (event.title?.toLowerCase().includes(search) ||
+        event.location?.toLowerCase().includes(search)) &&
       (selectedCategoryId === "all"
         ? true
         : event.category === selectedCategoryId);
@@ -27,34 +28,39 @@ function EventList({ eventsData }) {
 
   return (
     <>
-      <div className={styles.heroBannerWrapper}>
-        <h1>Do not miss out!</h1>
-        <p>Explore vibrant event happening in Helsinki area.</p>
+      <div className={styles.eventListContainer}>
+        <div className={styles.heroBannerWrapper}>
+          <h1>Do not miss out!</h1>
+          <p>Explore vibrant events happening in Helsinki area.</p>
 
-        <div>
-          <input
-            type="text"
-            name="search"
-            value={searchValue}
-            onChange={handleSearch}
-          />
-        </div>
-      </div>
-      <div>
-        <h2>Categories</h2>
-        <div className={styles.categoryListContainer}>
-          {Object.entries(supportedCategory).map(([id, label]) => (
-            <CategoryItem
-              key={id}
-              category={label}
-              onCategoryClick={() => {
-                setSelectedCategoryId(id);
-              }}
+          <div className={styles.searchContainer}>
+            <label htmlFor="search">Seach events by title or location:</label>
+            <input
+              type="text"
+              name="search"
+              value={searchValue}
+              onChange={handleSearch}
             />
-          ))}
+          </div>
         </div>
 
-        <div>
+        <div className={styles.categoryListWrapper}>
+          <h2>Categories</h2>
+          <div className={styles.categoryListContainer}>
+            {Object.entries(supportedCategory).map(([id, label]) => (
+              <CategoryItem
+                key={id}
+                category={label}
+                onCategoryClick={() => {
+                  setSelectedCategoryId(id);
+                }}
+                isActive={selectedCategoryId === id}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.eventCardWrapper}>
           <h2>Events</h2>
           <div className={styles.eventCardContainer}>
             {filteredEvents.length > 0 ? (
@@ -70,6 +76,8 @@ function EventList({ eventsData }) {
           </div>
         </div>
       </div>
+
+      <BackToTopBtn showAfter={200} />
     </>
   );
 }

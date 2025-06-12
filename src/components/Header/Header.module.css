@@ -1,26 +1,32 @@
-.header {
+:root {
+  --color-bg-header: #151515;
+  --color-text-header: #ffffff;
+  --color-accent-header: #ffe600;
+  --color-accent-header-hover: #ffffff;
+  --font-header: "Lydia Sans", sans-serif;
+  --shadow-glow-header: 0 0 6px rgba(255, 255, 255, 0.8);
+  --shadow-pulse-yellow: 0 0 0 0 rgba(255, 230, 0, 0.7);
+  --shadow-pulse-dark: 0 0 0 10px rgba(255, 230, 0, 0);
+  --glow-width: clamp(30px, 6vw, 80px);
+}
+
+.headerWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #26233c;
-  padding: 1rem 2rem;
-  font-family: 'Poppins', sans-serif;
-  color: white;
+  padding: 0.5rem 2rem;
+  min-height: 84px;
+  background-color: var(--color-bg-header);
+  color: var(--color-text-header);
+  font: 400 normal var(--font-header);
   position: relative;
-  height: 58px;
-  overflow: visible;
 }
 
-.logo,
-.centerNav,
-.authButtons {
-  flex: 1;
+.headerLogo {
   display: flex;
   align-items: center;
-}
-
-.logo {
   justify-content: flex-start;
+  flex: 1;
   min-width: 180px;
 }
 
@@ -30,108 +36,242 @@
 }
 
 .logoFlower {
-  width: auto;
-  height: 60px;
-  display: block;
+  height: clamp(20px, 6vw, 58px);
   margin-right: 0.5rem;
   animation: spin 20s linear infinite;
 }
 
 .logoText {
-  width: auto;
-  height: 40px;
-  display: block;
+  height: clamp(20px, 4.5vw, 40px);
 }
 
-.centerNav {
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.headerNav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .navList {
   display: flex;
+  gap: clamp(0.1rem, 2vw, 2rem);
   list-style: none;
-  gap: 2.5rem;
   margin: 0;
   padding: 0;
-  height: 100%;
+  align-items: center;
 }
 
-.navList li {
+.navItem {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-.navList li a {
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 36px;
-  height: 100%;
+.navLink {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #ffffffcc;
-  font-weight: 300;
-  font-size: 1rem;
-  transition: color 0.15s ease;
+  font-size: clamp(0.75rem, 1vw, 1rem);
+  color: var(--color-text-header);
+  transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
-.navList li a::after {
-  content: "";
+.navLink:hover,
+.navLink:focus {
+  text-shadow: var(--shadow-glow-header);
+}
+
+.glowBar {
   position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0.6);
-  width: 60px;
-  height: 8px;
-  background-color: #ffe600;
+  bottom: 0;
+  left: var(--glow-left, 50%);
+  transform: translateX(-50%);
+  height: clamp(4px, 0.5vw, 8px);
+  width: clamp(var(--glow-width), 10px, 80px);
+  background-color: var(--color-accent-header);
   border-radius: 4px;
-  opacity: 0;
+  box-shadow:
+    0 0 8px rgba(255, 230, 0, 0.8),
+    0 0 16px rgba(255, 230, 0, 0.5),
+    0 0 32px rgba(255, 230, 0, 0.3);
   pointer-events: none;
-  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  transition: left 0.3s ease;
+  z-index: 1;
 }
 
-.navList li a:hover::after,
-.navList li a:focus::after {
-  opacity: 1;
-  transform: translateX(-50%) scaleX(1);
-}
-
-.navList li a:hover,
-.navList li a:focus {
-  color: #fff;
-}
-
-.authButtons {
+.headerAuth {
+  display: flex;
+  flex: 1;
   justify-content: flex-end;
   gap: 1rem;
 }
 
-.authButtons a {
-  text-decoration: none;
-  font-weight: 300;
-  font-size: 1rem;
-  color: #fff;
+.authButton {
+  background: none;
+  border: none;
+  font-size: clamp(0.55rem, 1vw, 1rem);
+  color: var(--color-text-header);
+  cursor: pointer;
+  transition: text-shadow 0.2s ease;
 }
 
-.authButtons .signup {
-  background-color: #ffe600;
-  color: #26233c;
-  padding: 0.4rem 0.9rem;
+.authButton:hover {
+  text-shadow: var(--shadow-glow-header);
+}
+
+.authButtonSignup {
+  background-color: var(--color-accent-header);
+  color: #000;
+  padding: 0.2rem 0.4rem;
   border-radius: 8px;
-  font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
-.authButtons .signup:hover {
-  background-color: #ffef5e;
+.authButtonSignup:hover {
+  background-color: var(--color-accent-header-hover);
+  animation: pulse 1.2s infinite;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+.moodBtn {
+  margin-left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--color-text-header);
+  cursor: pointer;
+}
+
+.moodDesktopOnly {
+  display: block;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: var(--shadow-pulse-yellow);
   }
-  100% {
-    transform: rotate(360deg);
+  70% {
+    box-shadow: var(--shadow-pulse-dark);
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: auto;
+  z-index: 1001;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-accent-header);
+  border-radius: 2px;
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-header);
+  padding: 3rem 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.mobileNavLink {
+  font-size: 1rem;
+  color: var(--color-accent-header);
+  text-align: center;
+  text-decoration: none;
+  transition: text-shadow 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  text-shadow: 0 0 6px var(--color-accent-header);
+}
+
+.mobileAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0.3rem;
+}
+
+.mobileAuth button {
+  font-family: var(--font-header);
+  font-size: 1rem;
+  color: var(--color-accent-header);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  transition: text-shadow 0.2s ease;
+  width: 100%;
+}
+
+.mobileAuth button:hover {
+  text-shadow: 0 0 6px var(--color-accent-header);
+}
+
+@media (max-width: 768px) {
+  .moodDesktopOnly,
+  .headerNav,
+  .headerAuth,
+  .glowBar {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .mobileAuth .authButtonSignup {
+    background: none;
+    color: var(--color-accent-header);
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+  }
+  
+  .mobileAuth .authButtonSignup:hover {
+    background: none;
+    color: var(--color-accent-header);
+    animation: none;
+    text-shadow: 0 0 6px var(--color-accent-header);
   }
 }

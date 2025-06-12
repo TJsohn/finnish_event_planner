@@ -5,5 +5,5 @@ export const supportedCategory = {
   technology: "Technology",
   entertainment: "Entertainment",
   travel: "Travel",
-  all: "All", // pseudo category for display all events
+  all: "All",
 };
