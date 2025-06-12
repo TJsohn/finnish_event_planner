@@ -184,7 +184,6 @@ body:not(.light-mode) input,
 body:not(.light-mode) select,
 body:not(.light-mode) textarea {
   background: var(--color-bg-dark);
-  color: var(--color-text);
   border: 1px solid #444;
 }
 
