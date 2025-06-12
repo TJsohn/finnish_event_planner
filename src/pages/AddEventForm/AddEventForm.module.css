@@ -1,3 +1,29 @@
+.light {
+  --color-bg: #ffffff;
+  --color-text-btn: white;
+  --color-bg-btn: black;
+  --color-border-btn: black;
+  --color-hover-btn: white;
+  --color-hover-text-btn: black;
+  --color-text: black;
+  --color-border: black;
+  --color-input-bg: white;
+  --color-glow-pulse: rgba(0, 0, 0, 0.7);
+}
+
+.dark {
+  --color-bg: rgb(20, 19, 19);
+  --color-text-btn: black;
+  --color-bg-btn: #fffb00;
+  --color-border-btn: black;
+  --color-hover-btn: white;
+  --color-hover-text-btn: black;
+  --color-text: white;
+  --color-border: white;
+  --color-input-bg: black;
+  --color-glow-pulse: rgba(255, 230, 0, 0.7);
+}
+
 .formContainer {
   max-width: 700px;
   margin: 40px auto;
@@ -39,8 +65,7 @@ label {
 .inputMedium,
 .inputLarge,
 select,
-textarea
-{
+textarea {
   border: 1px solid #c9c9c9;
   border-radius: 6px;
   padding: 10px 12px;
@@ -65,7 +90,7 @@ textarea
 .inputLarge,
 textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 40px;
   resize: vertical;
 }
 
@@ -78,9 +103,9 @@ textarea:focus {
 }
 
 .submitBtn {
-  background: linear-gradient(90deg, #4e8cff 0%, #38b6ff 100%);
-  color: #fff;
-  border: none;
+  background-color: var(--color-bg-btn);
+  color: var(--color-text-btn);
+  border: 2px solid var(--color-border-btn);
   border-radius: 6px;
   padding: 12px 0;
   font-size: 1.1rem;
@@ -95,7 +120,10 @@ textarea:focus {
 }
 
 .submitBtn:hover {
-  background: linear-gradient(90deg, #38b6ff 0%, #4e8cff 100%);
+  background-color: var(--color-hover-btn);
+  color: var(--color-hover-text-btn);
+  border: 2px solid var(--color-border-btn);
+  animation: pulse 1.2s infinite;
 }
 
 .successMessage {
