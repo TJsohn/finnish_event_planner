@@ -1,15 +1,14 @@
-@font-face {
-  font-family: 'Lydia Sans';
-  src: url('/fonts/Lydia Sans Book.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
+:root {
+  --color-bg-footer: #151515;
+  --color-text-footer: #dddddd;
+  --color-text-footer-muted: #888888;
+  --font-footer: 'Lydia Sans', sans-serif;
 }
 
 .footer {
-  background-color: var(--color-bg-dark);
-  color: var(--color-text);
-  font-family: 'Lydia Sans', sans-serif;
-  font-size: 14px;
+  background-color: var(--color-bg-footer);
+  color: var(--color-text-footer);
+  font-family: var(--font-footer), sans-serif;
   padding: 2rem 0 0.5rem 0;
 }
 
@@ -32,37 +31,38 @@
 
 .columns h3,
 .columns h4 {
-  color: var(--color-text);
-  font-size: 1.1rem;
+  color: var(--color-text-footer);
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem);
   font-weight: 400;
   font-style: normal;
   margin-bottom: 0.5rem;
   cursor: default;
 }
 
-.footerLink,
-.footerText {
+.footerText,
+.footerLink {
   display: block;
   margin: 0.3rem 0;
-  color: var(--color-text-muted);
+  color: var(--color-text-footer-muted);
   text-decoration: none;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-  font-size: 12px;
+  font-size: clamp(0.65rem, 0.5vw + 0.3rem, 0.8rem);
   font-weight: 400;
   font-style: normal;
+  transition: none;
+  cursor: default;
 }
 
+.footerText:hover,
 .footerLink:hover,
-.footerText:hover {
-  color: var(--color-text);
-  text-shadow: var(--shadow-glow);
+.footerHover:hover {
+  color: var(--color-text-footer);
   cursor: pointer;
 }
 
 .appText {
-  color: var(--color-text-muted);
+  color: var(--color-text-footer-muted);
   margin: 0.3rem 0;
-  font-size: 12px;
+  font-size: clamp(0.65rem, 0.5vw + 0.3rem, 0.8rem);
   font-weight: 400;
   font-style: normal;
   cursor: default;
@@ -92,7 +92,7 @@
 
 .fullWidthLine {
   border: 0;
-  border-top: 1px solid var(--color-text);
+  border-top: 1px solid var(--color-text-footer);
   margin: 2rem 0 1rem;
   width: 100%;
 }
@@ -101,7 +101,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  font-size: 12px;
+  font-size: clamp(0.65rem, 0.5vw + 0.3rem, 0.8rem);
   font-weight: 400;
   font-style: normal;
   gap: 1rem;
@@ -109,26 +109,57 @@
   margin-bottom: 0.5rem;
 }
 
-.footerNote {
-  color: var(--color-text-muted);
-  margin: 0;
+.footerNote,
+.footerHover,
+.divider {
+  color: var(--color-text-footer-muted);
   cursor: default;
-  font-size: 10px;
+}
+
+.footerNote {
+  margin: 0;
+  font-size: clamp(0.55rem, 0.4vw + 0.2rem, 0.7rem);
 }
 
 .footerHover {
-  color: var(--color-text-muted);
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-.footerHover:hover {
-  color: var(--color-text);
-  text-shadow: var(--shadow-glow);
-  cursor: pointer;
+  transition: none;
 }
 
 .divider {
-  color: var(--color-text-muted);
   margin: 0 0.25rem;
-  cursor: default;
+}
+
+/* --- Responsive Styling --- */
+@media (max-width: 768px) {
+  .bottomBar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerNote {
+    text-align: center;
+  }
+
+  .mobileApp {
+    margin: 2rem auto 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .storeButtons {
+    justify-content: center;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .columns > div {
+    width: 100%;
+    max-width: 300px;
+  }
 }

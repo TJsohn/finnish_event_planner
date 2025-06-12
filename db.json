@@ -237,6 +237,21 @@
       "imageUrl": "https://images.pexels.com/photos/7220804/pexels-photo-7220804.jpeg",
       "startTime": "17:00",
       "endTime": "20:00"
+    },
+    {
+      "id": "ddec",
+      "title": "BBQ",
+      "date": "2025-06-11",
+      "address": "Atlantinkatu 12A",
+      "postalCode": "00220",
+      "location": "Helsinki",
+      "description": "BBQ",
+      "category": "entertainment",
+      "startTime": "14:30",
+      "endTime": "15:31",
+      "imageUrl": "",
+      "startDate": "2025-06-13",
+      "endDate": "2025-06-20"
     }
   ]
 }

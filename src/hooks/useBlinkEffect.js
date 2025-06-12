@@ -18,12 +18,14 @@ export function useBlinkEffect({
   }, []);
 
   useEffect(() => {
-    if (phraseList[currentPhraseIndex] !== triggerPhrase) return;
+    const isTriggered = phraseList[currentPhraseIndex] === triggerPhrase;
+    if (!isTriggered) return;
 
     timeoutRefs.current.forEach(clearTimeout);
     timeoutRefs.current = [];
 
     let count = 0;
+
     const blink = () => {
       setHighlight(true);
       const offTimeout = setTimeout(() => {
@@ -34,6 +36,7 @@ export function useBlinkEffect({
           timeoutRefs.current.push(onTimeout);
         }
       }, duration);
+
       timeoutRefs.current.push(offTimeout);
     };
 
