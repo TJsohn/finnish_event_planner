@@ -1,5 +1,5 @@
 .light {
-  --color-bg: #ffffff;
+  --color-bg-a: #ffffff;
   --color-text-btn: white;
   --color-bg-btn: black;
   --color-border-btn: black;
@@ -12,7 +12,7 @@
 }
 
 .dark {
-  --color-bg: rgb(20, 19, 19);
+  --color-bg-a: rgb(20, 19, 19);
   --color-text-btn: black;
   --color-bg-btn: #fffb00;
   --color-border-btn: black;
@@ -61,12 +61,11 @@ label {
   text-align: left;
 }
 
-.inputSmall,
+.row .inputSmall,
 .inputMedium,
 .inputLarge,
 select,
 textarea {
-  border: 1px solid #c9c9c9;
   border-radius: 6px;
   padding: 10px 12px;
   font-size: 1rem;

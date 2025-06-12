@@ -66,7 +66,7 @@ function About() {
             <div className={styles.contactCard}>
               <img
                 className={styles.profilePic}
-                src="./public/aboupic/developerpic/Anton.png"
+                src="/aboupic/developerpic/Anton.png"
                 alt="Anton"
               />
               <p className={styles.content}>Riabokon Anton</p>
@@ -75,7 +75,7 @@ function About() {
             <div className={styles.contactCard}>
               <img
                 className={styles.profilePic}
-                src="./public/aboupic/developerpic/TJ.jpg"
+                src="/aboupic/developerpic/TJ.jpg"
                 alt="TJ"
               />
               <p className={styles.content}>Sohn Taejeong</p>
@@ -84,7 +84,7 @@ function About() {
             <div className={styles.contactCard}>
               <img
                 className={styles.profilePic}
-                src="./public/aboupic/developerpic/mai.png"
+                src="/aboupic/developerpic/mai.png"
                 alt="Mai"
               />
               <p className={styles.content}>Tran Mai</p>
@@ -93,7 +93,7 @@ function About() {
             <div className={styles.contactCard}>
               <img
                 className={styles.profilePic}
-                src="./public/aboupic/developerpic/jamil.png"
+                src="/aboupic/developerpic/jamil.png"
                 alt="Anton"
               />
               <p className={styles.content}>Muhammd Jamil</p>
