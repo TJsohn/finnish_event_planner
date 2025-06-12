@@ -70,7 +70,7 @@ textarea {
   border-radius: 6px;
   padding: 10px 12px;
   font-size: 1rem;
-  background: #f8f8fa;
+  background: #f8f8fa !important;
   transition: border 0.2s;
   margin-bottom: 8px;
   margin-top: 4px;
