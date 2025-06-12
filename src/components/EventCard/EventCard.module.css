@@ -55,6 +55,7 @@
 
 .eventImage {
   width: 100%;
+  height: 270px;
   object-fit: cover;
   display: block;
   background: #eee;
