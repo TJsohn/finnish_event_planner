@@ -5,6 +5,7 @@ import { supportedCategory } from "../../data/categories";
 import Icon from "../../components/Icon";
 import { ThemeContext } from "../../ThemeContext";
 import Swal from 'sweetalert2';
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
 const defaultImageUrl =
   "https://cdn.pixabay.com/photo/2017/07/27/12/31/party-2545168_1280.jpg";
@@ -72,7 +73,7 @@ const EventDetail = ({ onDeleteEvent }) => {
       setDateError("Event dates cannot be in the past.");
       return;
     }
-  
+
     if (startDate > endDate) {
       setDateError("Start date cannot be after end date.");
       return;
@@ -173,7 +174,8 @@ const EventDetail = ({ onDeleteEvent }) => {
     if (normalized.includes("cloud")) return "clouds";
     if (normalized.includes("rain")) return "rain";
     if (normalized.includes("snow")) return "snow";
-    if (normalized.includes("storm") || normalized.includes("thunder")) return "storm";
+    if (normalized.includes("storm") || normalized.includes("thunder"))
+      return "storm";
     if (normalized.includes("wind")) return "wind";
     if (!iconModule) return null;
   };
@@ -196,147 +198,215 @@ const EventDetail = ({ onDeleteEvent }) => {
 
   return (
     <div className={`${styles.page} ${lightMode ? styles.light : styles.dark}`}>
-    <div className={styles.wrapper}>
-      <div className={styles.topSection}>
-        <div className={styles.leftColumn}>
-          {isEditing ? (
-            <input
-              className={styles.titleEditor}
-              value={editedEvent.title}
-              onChange={(e) => handleChange("title", e.target.value)}
-            />
-          ) : (
-            <h1 className={styles.heading}>{event.title}</h1>
-          )}
+      <div className={styles.wrapper}>
+        <div className={styles.topSection}>
+          <div className={styles.leftColumn}>
+            {isEditing ? (
+              <input
+                className={styles.titleEditor}
+                value={editedEvent.title}
+                onChange={(e) => handleChange("title", e.target.value)}
+              />
+            ) : (
+              <h1 className={styles.heading}>{event.title}</h1>
+            )}
 
-          <div className={styles.infoGroup}>
-
-            <div className={styles.infoBox}>
-              <div className={styles.iconTextRow}>
-                <Icon name="date" alt="Calendar icon" className={styles.icon} />
-                <span className={styles.labelInline}>Date</span>
+            <div className={styles.infoGroup}>
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon
+                    name="date"
+                    alt="Calendar icon"
+                    className={styles.icon}
+                  />
+                  <span className={styles.labelInline}>Date</span>
+                </div>
+                {isEditing ? (
+                  <>
+                    <input
+                      type="date"
+                      className={styles.dateInput}
+                      value={editedEvent.startDate}
+                      onChange={(e) =>
+                        handleChange("startDate", e.target.value)
+                      }
+                      min={todayStr}
+                    />
+                    {" to "}
+                    <input
+                      type="date"
+                      className={styles.dateInput}
+                      value={editedEvent.endDate}
+                      onChange={(e) => handleChange("endDate", e.target.value)}
+                      min={todayStr}
+                    />
+                    {dateError && (
+                      <p className={styles.errorText}>{dateError}</p>
+                    )}
+                  </>
+                ) : (
+                  <p>{formatDateRange(event.startDate, event.endDate)}</p>
+                )}
               </div>
-              {isEditing ? (
-                <>
-                  <input
-                    type="date"
-                    className={styles.dateInput}
-                    value={editedEvent.startDate}
-                    onChange={(e) => handleChange("startDate", e.target.value)}
-                    min={todayStr}
-                  />
-                  {" to "}
-                  <input
-                    type="date"
-                    className={styles.dateInput}
-                    value={editedEvent.endDate}
-                    onChange={(e) => handleChange("endDate", e.target.value)}
-                    min={todayStr}
-                  />
-                  {dateError && <p className={styles.errorText}>{dateError}</p>}
-                </>
-              ) : (
-                <p>{formatDateRange(event.startDate, event.endDate)}</p>
-              )}
-            </div>
 
-            <div className={styles.infoBox}>
-            <div className={styles.iconTextRow}>
-              <Icon name="time" alt="Clock icon" className={styles.icon} />
-              <span className={styles.labelInline}>Time</span>
-            </div>
-              {isEditing ? (
-                <>
-                  <input
-                    type="time"
-                    className={styles.timeInput}
-                    value={editedEvent.startTime}
-                    onChange={(e) => handleChange("startTime", e.target.value)}
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon name="time" alt="Clock icon" className={styles.icon} />
+                  <span className={styles.labelInline}>Time</span>
+                </div>
+                {isEditing ? (
+                  <>
+                    <input
+                      type="time"
+                      className={styles.timeInput}
+                      value={editedEvent.startTime}
+                      onChange={(e) =>
+                        handleChange("startTime", e.target.value)
+                      }
+                    />
+                    {" – "}
+                    <input
+                      type="time"
+                      className={styles.timeInput}
+                      value={editedEvent.endTime}
+                      onChange={(e) => handleChange("endTime", e.target.value)}
+                    />
+                  </>
+                ) : (
+                  <p>{`${event.startTime} – ${event.endTime}`}</p>
+                )}
+              </div>
+
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon
+                    name="location"
+                    alt="Location icon"
+                    className={styles.icon}
                   />
-                  {" – "}
+                  <span className={styles.labelInline}>Location</span>
+                </div>
+                {isEditing ? (
                   <input
-                    type="time"
-                    className={styles.timeInput}
-                    value={editedEvent.endTime}
-                    onChange={(e) => handleChange("endTime", e.target.value)}
+                    className={styles.textInput}
+                    value={editedEvent.location}
+                    onChange={(e) => handleChange("location", e.target.value)}
                   />
-                </>
-              ) : (
-                <p>{`${event.startTime} – ${event.endTime}`}</p>
-              )}
-            </div>
+                ) : (
+                  <p>{event.location}</p>
+                )}
+              </div>
 
-            <div className={styles.infoBox}>
-            <div className={styles.iconTextRow}>
-              <Icon name="location" alt="Location icon" className={styles.icon} />
-              <span className={styles.labelInline}>Location</span>
-            </div>
-              {isEditing ? (
-                <input
-                  className={styles.textInput}
-                  value={editedEvent.location}
-                  onChange={(e) => handleChange("location", e.target.value)}
-                />
-              ) : (
-                <p>{event.location}</p>
-              )}
-            </div>
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon
+                    name="address"
+                    alt="Address icon"
+                    className={styles.icon}
+                  />
+                  <span className={styles.labelInline}>Address</span>
+                </div>
+                {isEditing ? (
+                  <input
+                    className={styles.textInput}
+                    value={editedEvent.address}
+                    onChange={(e) => handleChange("address", e.target.value)}
+                  />
+                ) : (
+                  <p>{event.address}</p>
+                )}
+              </div>
 
-            <div className={styles.infoBox}>
-            <div className={styles.iconTextRow}>
-              <Icon name="address" alt="Address icon" className={styles.icon} />
-              <span className={styles.labelInline}>Address</span>
-            </div>
-              {isEditing ? (
-                <input
-                  className={styles.textInput}
-                  value={editedEvent.address}
-                  onChange={(e) => handleChange("address", e.target.value)}
-                />
-              ) : (
-                <p>{event.address}</p>
-              )}
-            </div>
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon
+                    name="category"
+                    alt="Category icon"
+                    className={styles.icon}
+                  />
+                  <span className={styles.labelInline}>Category</span>
+                </div>
+                {isEditing ? (
+                  <select
+                    className={styles.dropdown}
+                    value={editedEvent.category}
+                    onChange={(e) => handleChange("category", e.target.value)}
+                  >
+                    {Object.entries(supportedCategory).map(([key, label]) =>
+                      key === "all" ? null : (
+                        <option key={key} value={key}>
+                          {label}
+                        </option>
+                      )
+                    )}
+                  </select>
+                ) : (
+                  <p>{supportedCategory[event.category] || event.category}</p>
+                )}
+              </div>
 
-            <div className={styles.infoBox}>
-            <div className={styles.iconTextRow}>
-              <Icon name="category" alt="Category icon" className={styles.icon} />
-              <span className={styles.labelInline}>Category</span>
+              <div className={styles.infoBox}>
+                <div className={styles.iconTextRow}>
+                  <Icon
+                    name="description"
+                    alt="Description icon"
+                    className={styles.icon}
+                  />
+                  <span className={styles.labelInline}>Description</span>
+                </div>
+                {isEditing ? (
+                  <textarea
+                    className={styles.textareaInput}
+                    value={editedEvent.description}
+                    onChange={(e) =>
+                      handleChange("description", e.target.value)
+                    }
+                  />
+                ) : (
+                  <p>{event.description}</p>
+                )}
+              </div>
             </div>
-              {isEditing ? (
-                <select
-                  className={styles.dropdown}
-                  value={editedEvent.category}
-                  onChange={(e) => handleChange("category", e.target.value)}
+          </div>
+
+          <div className={styles.rightColumn}>
+            <img
+              src={editedEvent.imageUrl || defaultImageUrl}
+              alt={event.title}
+              className={styles.previewImage}
+            />
+
+            {!isEditing ? (
+              <div className={styles.editDeleteWrap}>
+                <button
+                  className={`${styles.actionBtn} ${styles.editBtn}`}
+                  onClick={handleEdit}
                 >
-                  {Object.entries(supportedCategory).map(([key, label]) =>
-                    key === "all" ? null : (
-                      <option key={key} value={key}>
-                        {label}
-                      </option>
-                    )
-                  )}
-                </select>
-              ) : (
-                <p>{supportedCategory[event.category] || event.category}</p>
-              )}
-            </div>
-
-            <div className={styles.infoBox}>
-            <div className={styles.iconTextRow}>
-              <Icon name="description" alt="Description icon" className={styles.icon} />
-              <span className={styles.labelInline}>Description</span>
-            </div>
-              {isEditing ? (
-                <textarea
-                  className={styles.textareaInput}
-                  value={editedEvent.description}
-                  onChange={(e) => handleChange("description", e.target.value)}
-                />
-              ) : (
-                <p>{event.description}</p>
-              )}
-            </div>
+                  Edit
+                </button>
+                <button
+                  className={`${styles.actionBtn} ${styles.deleteBtn}`}
+                  onClick={handleDelete}
+                >
+                  Delete
+                </button>
+              </div>
+            ) : (
+              <div className={styles.saveCancelWrap}>
+                <button
+                  className={`${styles.actionBtn} ${styles.saveBtn}`}
+                  onClick={handleSave}
+                >
+                  Save
+                </button>
+                <button
+                  className={`${styles.actionBtn} ${styles.cancelBtn}`}
+                  onClick={handleCancel}
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
@@ -392,9 +462,10 @@ const EventDetail = ({ onDeleteEvent }) => {
               loading="lazy"
             ></iframe>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+
+      <BackToTopBtn showAfter={200} />
     </div>
   );
 };

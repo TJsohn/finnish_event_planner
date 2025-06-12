@@ -24,6 +24,13 @@
 
 .abouth1 {
   font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+.abouth2 {
+  color: var(--color-text) !important;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .content {
@@ -139,11 +146,11 @@
   .mainContainer {
     display: flex;
     justify-content: center;
-    align-items: center; /* centers vertically */
+    align-items: center;
     padding: 2rem;
     background-color: var(--color-bg-dark-all);
     min-height: 100vh;
-    flex-direction: column; /* stack content vertically */
+    flex-direction: column;
   }
 
   .contentContainer {

@@ -1,24 +1,27 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import { useNavigate } from "react-router";
 import useAxios from "./../../hooks/useAxios";
 import styles from "./AddEventForm.module.css";
+import { ThemeContext } from "../../ThemeContext";
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
-const AddEventForm = ({onAddEvent}) => {
+const AddEventForm = ({ onAddEvent }) => {
   const { post } = useAxios();
+  const { lightMode } = useContext(ThemeContext);
   const today = new Date().toISOString().split('T')[0];
   const [successMessage, setSuccessMessage] = useState('');
 
   const [formData, setFormData] = useState({
-    title: '',
+    title: "",
     date: today,
-    address: '',
-    postalCode: '',
-    location: 'Helsinki',
-    description: '',
-    category: 'culture',
-    startTime: '',
-    endTime: '',
-    imageUrl: ''
+    address: "",
+    postalCode: "",
+    location: "Helsinki",
+    description: "",
+    category: "culture",
+    startTime: "",
+    endTime: "",
+    imageUrl: "",
   });
 
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ const AddEventForm = ({onAddEvent}) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -40,29 +43,29 @@ const AddEventForm = ({onAddEvent}) => {
     }
 
     for (const key in formData) {
-      if (key !== 'imageUrl' && !formData[key]) {
+      if (key !== "imageUrl" && !formData[key]) {
         alert(`Please fill in all fields.`);
         return;
       }
     }
 
-    const newEvent = {...formData};
+    const newEvent = { ...formData };
 
     try {
-      const res = await post('http://localhost:3001/events', newEvent);
+      const res = await post("http://localhost:3001/events", newEvent);
       onAddEvent(res.data);
-      setSuccessMessage('Event added successfully!');
+      setSuccessMessage("Event added successfully!");
       setTimeout(() => {
-        navigate('/events');
-      }, 2500); 
+        navigate("/events");
+      }, 2500);
     } catch (err) {
       console.error("Error adding event:", err);
     }
-
-    };
+  };
 
   return (
-    <>
+    <div className={`${styles.page} ${lightMode ? styles.light : styles.dark}`}>
+    
     <div className={styles.formContainer}>
       <form className={styles.form} onSubmit={handleSubmit}>
 
@@ -118,19 +121,29 @@ const AddEventForm = ({onAddEvent}) => {
 
         <div className={styles.row}>
           <label htmlFor="description">Description</label>
-          <textarea className={styles.inputLarge} type="text" placeholder="Description of event" rows={30} value={formData.description} onChange={handleChange} id="description" name="description" required />
+          <textarea className={styles.inputLarge} type="text" placeholder="Description of event" rows={15} value={formData.description} onChange={handleChange} id="description" name="description" required />
         </div>
 
           <label htmlFor="imageUrl">Event Image</label>
-          <input className={styles.inputMedium} type="url" placeholder='Image URL' value={formData.imageUrl} onChange={handleChange} id="imageUrl" name="imageUrl" />
-          
+          <input
+            className={styles.inputMedium}
+            type="url"
+            placeholder="Image URL"
+            value={formData.imageUrl}
+            onChange={handleChange}
+            id="imageUrl"
+            name="imageUrl"
+          />
+
           <button className={styles.submitBtn}>Add Event</button>
           {successMessage && (
             <div className={styles.successMessage}>{successMessage}</div>
           )}
+
+      <BackToTopBtn showAfter={200} />
       </form>
         </div>
-    </>
+    </div>
   );
 };
 
