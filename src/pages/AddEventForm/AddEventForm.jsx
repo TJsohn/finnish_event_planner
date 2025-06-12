@@ -68,7 +68,7 @@ const AddEventForm = ({onAddEvent}) => {
 
         <div className={styles.row}>
           <label htmlFor="title">Title</label>
-          <input className={styles.inputMedium} type="text" placeholder="Enter event title" value={formData.title} onChange={handleChange} id="title" name="title" required />
+          <input className={styles.inputMedium} type="text" placeholder="Event title" value={formData.title} onChange={handleChange} id="title" name="title" required />
         </div>
 
         <div className={styles.row}>
@@ -99,12 +99,12 @@ const AddEventForm = ({onAddEvent}) => {
 
         <div className={styles.row}>
           <label htmlFor="address">Address</label>
-          <input className={styles.inputMedium} type="text" placeholder='Enter street address (e.g., Mannerheimintie 20)' value={formData.address} onChange={handleChange} id="address" name="address" required/>
+          <input className={styles.inputMedium} type="text" placeholder='Street address (e.g., Mannerheimintie 20)' value={formData.address} onChange={handleChange} id="address" name="address" required/>
         </div>
 
         <div className={styles.row}>
           <label htmlFor="postalCode">Postal Code</label>
-          <input className={styles.inputSmall} type="text" placeholder='Enter postal code (e.g., 00100)' value={formData.postalCode} onChange={handleChange} id="postalCode" name="postalCode" required />
+          <input className={styles.inputSmall} type="text" placeholder='Postal code (e.g., 00100)' value={formData.postalCode} onChange={handleChange} id="postalCode" name="postalCode" required />
         </div>
 
         <div className={styles.row}>
@@ -118,11 +118,11 @@ const AddEventForm = ({onAddEvent}) => {
 
         <div className={styles.row}>
           <label htmlFor="description">Description</label>
-          <textarea className={styles.inputLarge} type="text" placeholder="Enter description of event" rows={30} value={formData.description} onChange={handleChange} id="description" name="description" required />
+          <textarea className={styles.inputLarge} type="text" placeholder="Description of event" rows={30} value={formData.description} onChange={handleChange} id="description" name="description" required />
         </div>
 
           <label htmlFor="imageUrl">Event Image</label>
-          <input className={styles.inputMedium} type="url" placeholder='Enter image URL (e.g., https://example.com/image.jpg)' value={formData.imageUrl} onChange={handleChange} id="imageUrl" name="imageUrl" />
+          <input className={styles.inputMedium} type="url" placeholder='Image URL' value={formData.imageUrl} onChange={handleChange} id="imageUrl" name="imageUrl" />
           
           <button className={styles.submitBtn}>Add Event</button>
           {successMessage && (

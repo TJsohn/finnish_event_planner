@@ -45,9 +45,6 @@ function About() {
           location, or type, then dive right into something that makes you
           happy.
         </p>
-
-        <h2>Our Mission:</h2>
-        <p>To inspire experiences of fearlessness.</p>
         
         <h2 className={styles.abouth2}>Our Mission:</h2>
         <p className={styles.content}>

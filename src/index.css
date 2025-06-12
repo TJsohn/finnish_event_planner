@@ -1,36 +1,9 @@
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
 @font-face {
   font-family: "Lydia Sans";
   src: url("/fonts/Lydia Sans Hairline.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +11,7 @@
   src: url("/fonts/Lydia Sans Hairline Italic.ttf") format("truetype");
   font-weight: 100;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -45,6 +19,7 @@
   src: url("/fonts/Lydia Sans ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -66,6 +41,7 @@
   src: url("/fonts/Lydia Sans Light Italic.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -73,6 +49,7 @@
   src: url("/fonts/Lydia Sans Book.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -80,6 +57,7 @@
   src: url("/fonts/Lydia Sans Book Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -87,6 +65,7 @@
   src: url("/fonts/Lydia Sans Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -94,6 +73,7 @@
   src: url("/fonts/Lydia Sans Bold Italic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -101,6 +81,7 @@
   src: url("/fonts/Lydia Sans ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -108,6 +89,7 @@
   src: url("/fonts/Lydia Sans ExtraBold Italic.ttf") format("truetype");
   font-weight: 800;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -115,6 +97,7 @@
   src: url("/fonts/Lydia Sans Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -122,24 +105,22 @@
   src: url("/fonts/Lydia Sans Black Italic.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
 
 :root {
   --color-bg-dark: #151515;
-  --color-bg-white: #ffffff;
   --color-bg-dark-all: #2d2a2a;
   --color-primary: #ffe600;
   --color-primary-hover: #ffffff;
   --color-text: #ffffff;
-  --color-text-dark: #000000;
+  --color-text-dark: white;
   --color-text-muted: #ffffffcc;
   --color-button-text: #26233c;
   --shadow-glow: 0 0 6px rgba(255, 255, 255, 0.8);
-  --font-text-grey:  #ffffff;
-  --font-text-grey-strong:  #ffffff;
   --font-main: "Lydia Sans", sans-serif;
-
-
+  --font-text-grey: #ffffff;
+  --font-text-grey-strong: #ffffff;
 }
 
 html {
@@ -190,13 +171,21 @@ textarea {
   outline: none;
 }
 
-/* for light mood */
 body.light-mode {
   --color-bg-dark-all: #ffffff;
   --color-text: #000000;
   --shadow-glow: 0 0 6px rgba(95, 93, 93, 0.8);
   --font-text-grey: #555;
   --font-text-grey-strong: #333;
+  --color-text-dark: #000000;
+}
+
+body:not(.light-mode) input,
+body:not(.light-mode) select,
+body:not(.light-mode) textarea {
+  background: var(--color-bg-dark);
+  color: var(--color-text);
+  border: 1px solid #444;
 }
 
 body {

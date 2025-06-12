@@ -45,7 +45,7 @@
 }
 
 .heading {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
   font-weight: 700;
   font-style: normal;
   color: var(--color-text);
@@ -53,7 +53,7 @@
 }
 
 .titleEditor {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: 600;
   font-style: normal;
   padding: 10px 12px;
@@ -142,12 +142,13 @@
 }
 
 .infoBox p {
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
   margin: 0;
   color: var(--color-text);
 }
 
 .label {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: bold;
   margin-bottom: 6px;
   color: var(--color-text);
@@ -161,19 +162,44 @@
   flex-wrap: wrap;
 }
 
-.weatherBox,
-.mapBox {
+.weatherBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   flex: 1 1 48%;
-  min-height: 250px;
   background-color: var(--color-bg);
   border-radius: 8px;
   border: 2px solid var(--color-border);
   padding: 20px;
   box-sizing: border-box;
+  aspect-ratio: 16 / 9;
+}
+
+.mapBox {
+  position: relative;
+  flex: 1 1 48%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg);
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.mapBox iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
 }
 
 .weatherTitle {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2vw, 3rem);
   font-weight: 600;
   font-style: normal;
   color: var(--color-text);
@@ -183,13 +209,6 @@
 .weatherRow {
   color: var(--color-text);
   margin-bottom: 10px;
-}
-
-.mapBox iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 8px;
 }
 
 .editDeleteWrap,
@@ -252,17 +271,17 @@
 }
 
 .labelInline {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: 600;
   font-style: normal;
-  color: var(--color-label);
+  color: var(--color-label, var(--color-text));
   display: inline;
   margin-bottom: 0;
 }
 
 .temperatureLabel {
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 2rem);
+  font-weight: 300;
   font-style: normal;
   color: var(--color-label);
   display: inline;
@@ -271,14 +290,22 @@
 
 .temperatureLabel + .icon {
   margin-left: 0.3rem;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
 }
 
 .infoBox .errorText {
   color: #dc3545;
   font-size: 10px;
   margin-top: 6px;
+}
+
+.weatherMessage {
+  font-size: clamp(1rem, 1.3vw, 2rem);
+  color: var(--color-text);
+  margin-top: 2rem;
+  font-weight: 400;
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
@@ -296,5 +323,20 @@
 
   .previewImage {
     width: 100%;
+  }
+
+  .rightColumn {
+    align-items: center;
+  }
+
+  .editDeleteWrap,
+  .saveCancelWrap {
+    justify-content: center;
+  }
+
+  .mapBox {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
   }
 }

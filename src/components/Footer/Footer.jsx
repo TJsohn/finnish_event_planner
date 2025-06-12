@@ -11,7 +11,7 @@ const Footer = ({ year = new Date().getFullYear() }) => {
             <h4>Discover</h4>
             <a
               href="https://www.hel.fi/fi"
-              className={styles.footerLink}
+              className={styles.footerText}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -19,7 +19,7 @@ const Footer = ({ year = new Date().getFullYear() }) => {
             </a>
             <a
               href="https://www.infofinland.fi/"
-              className={styles.footerLink}
+              className={styles.footerText}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -29,61 +29,33 @@ const Footer = ({ year = new Date().getFullYear() }) => {
 
           <div>
             <h4>Follow Us</h4>
-            <a
-              href="https://www.facebook.com/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Facebook
-            </a>
-            <a
-              href="https://x.com/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              X (Twitter)
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              YouTube
-            </a>
-            <a
-              href="https://www.tiktok.com/en/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TikTok
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              className={styles.footerText}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
+            {[
+              { label: 'Facebook', url: 'https://www.facebook.com/' },
+              { label: 'X (Twitter)', url: 'https://x.com/' },
+              { label: 'Instagram', url: 'https://www.instagram.com/' },
+              { label: 'YouTube', url: 'https://www.youtube.com/' },
+              { label: 'TikTok', url: 'https://www.tiktok.com/en/' },
+              { label: 'LinkedIn', url: 'https://www.linkedin.com/' },
+            ].map(({ label, url }) => (
+              <a
+                key={label}
+                href={url}
+                className={styles.footerText}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {label}
+              </a>
+            ))}
           </div>
 
           <div>
             <h4>About</h4>
-            <p className={styles.footerText}>Open Application</p>
-            <p className={styles.footerText}>Help desk</p>
-            <p className={styles.footerText}>Gift Card</p>
+            {['Open Application', 'Help desk', 'Gift Card'].map((item) => (
+              <p key={item} className={styles.footerText}>
+                {item}
+              </p>
+            ))}
           </div>
 
           <div className={styles.mobileApp}>
@@ -104,15 +76,15 @@ const Footer = ({ year = new Date().getFullYear() }) => {
 
       <div className={styles.content}>
         <div className={styles.bottomBar}>
-        <p className={styles.footerNote}>
-          <span className={styles.footerHover}>Terms of Use</span>
-          <span className={styles.divider}> | </span>
-          <span className={styles.footerHover}>Privacy Policy</span>
-          <span className={styles.divider}> | </span>
-          <span className={styles.footerHover}>Cookies Management</span>
-        </p>
+          <p className={styles.footerNote}>
+            <span className={styles.footerHover}>Terms of Use</span>
+            <span className={styles.divider}> | </span>
+            <span className={styles.footerHover}>Privacy Policy</span>
+            <span className={styles.divider}> | </span>
+            <span className={styles.footerHover}>Cookies Management</span>
+          </p>
 
-          <p className={styles.footerNote}>&copy; {year} FREYDIS EVENT PLANER</p>
+          <p className={styles.footerNote}>&copy; {year} FREYDIS EVENT PLANNER</p>
         </div>
       </div>
     </footer>

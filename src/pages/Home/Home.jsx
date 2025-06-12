@@ -1,12 +1,14 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useAnimatedText } from '../../hooks/useAnimatedText';
 import { useBlinkEffect } from '../../hooks/useBlinkEffect';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import styles from './Home.module.css';
 import AnimatedQuote from '../../components/AnimatedQuote/AnimatedQuote';
 
 function Home() {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   const [isPulsing, setIsPulsing] = useState(false);
 
   const phrases = useMemo(() => [
@@ -17,13 +19,17 @@ function Home() {
     "Explore!"
   ], []);
 
-  const { animatedChars, currentPhraseIndex, phraseList } = useAnimatedText(phrases, 40, 3000);
+  const { animatedChars, currentPhraseIndex, phraseList } = useAnimatedText(
+    phrases,
+    40,
+    3000
+  );
 
   useBlinkEffect({
     triggerPhrase: "Explore!",
     phraseList,
     currentPhraseIndex,
-    setHighlight: setIsPulsing, 
+    setHighlight: setIsPulsing,
     blinks: 3,
     duration: 600
   });
@@ -32,16 +38,27 @@ function Home() {
 
   return (
     <div className={styles.home}>
-      <video
-        className={styles.video}
-        autoPlay
-        muted
-        loop
-        playsInline
-        src="/video-background.mp4"
-        alt="video background"
-      />
-      
+      {isMobile ? (
+        <img
+          src="/image-background.jpg"
+          loading="lazy"
+          alt="Mobile background"
+          className={styles.video}
+        />
+      ) : (
+        <video
+          className={styles.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/image-background.jpg"
+        >
+          <source src="/video-background.webm" type="video/webm" />
+        </video>
+      )}
+
       <AnimatedQuote animatedChars={animatedChars} />
 
       <div className={styles.overlay}>
