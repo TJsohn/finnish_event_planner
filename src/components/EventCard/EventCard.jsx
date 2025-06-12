@@ -38,9 +38,10 @@ const EventCard = ({
         </span>
       </div>
       <img
-        src={imageUrl ? imageUrl : defaultImageUrl}
+        src={imageUrl ? imageUrl : defaultImageUrl} 
+        loading="lazy"
         alt={title}
-        className={styles.eventImage}
+        className={styles.eventImage} 
       />
 
       <div className={styles.eventCardInfoContainer}>
