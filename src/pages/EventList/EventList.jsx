@@ -38,6 +38,7 @@ function EventList({ eventsData }) {
             <input
               type="text"
               name="search"
+              id="search"
               value={searchValue}
               onChange={handleSearch}
             />
