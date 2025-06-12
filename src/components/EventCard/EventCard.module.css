@@ -1,17 +1,18 @@
 .eventCard {
   background: var(--color-bg-dark-all);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 0 6px rgba(95, 93, 93, 0.5);
   width: 30%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border-radius: 10px;
+  border: 0.5px solid white;
+  border-radius: 16px;
   position: relative;
   overflow: hidden;
 }
 
 .eventCard:hover {
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 0 6px rgba(95, 93, 93, 0.7);
 }
 
 .eventCard:hover .eventImage {
@@ -26,7 +27,7 @@
   top: 0;
   padding-left: 12px;
   z-index: 2;
-  background: #f1e6fc;
+  background: #f1f1f0;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -102,7 +103,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #888;
+  color: var(--font-text-grey);
   font-size: 0.95rem;
 }
 
@@ -129,7 +130,6 @@
 @media (max-width: 375px) {
   .eventCard {
     width: 100%;
-    border-radius: 8px;
   }
 
   .categoryItem {
@@ -184,7 +184,6 @@
 @media (min-width: 376px) and (max-width: 480px) {
   .eventCard {
     width: 100%;
-    border-radius: 12px;
   }
 
   .categoryItem {
@@ -240,7 +239,6 @@
   .eventCard {
     width: 45%;
     margin: 0 0 1.5rem 0;
-    border-radius: 12px;
   }
 
   .categoryItem {

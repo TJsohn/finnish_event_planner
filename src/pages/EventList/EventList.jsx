@@ -3,6 +3,7 @@ import CategoryItem from "../../components/CategoryItem/CategoryItem";
 import styles from "./EventList.module.css";
 import EventCard from "../../components/EventCard/EventCard";
 import { supportedCategory } from "../../data/categories";
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
 
 function EventList({ eventsData }) {
   const [searchValue, setSearchValue] = useState("");
@@ -75,6 +76,8 @@ function EventList({ eventsData }) {
           </div>
         </div>
       </div>
+
+      <BackToTopBtn showAfter={200} />
     </>
   );
 }
