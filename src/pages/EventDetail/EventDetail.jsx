@@ -5,6 +5,8 @@ import { supportedCategory } from "../../data/categories";
 import Icon from "../../components/Icon";
 import { ThemeContext } from "../../ThemeContext";
 import Swal from 'sweetalert2';
+import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
+
 
 const defaultImageUrl =
   "https://cdn.pixabay.com/photo/2017/07/27/12/31/party-2545168_1280.jpg";
@@ -394,7 +396,10 @@ const EventDetail = ({ onDeleteEvent }) => {
           </div>
         </div>
       )}
+
     </div>
+
+      <BackToTopBtn showAfter={200} />
     </div>
   );
 };
