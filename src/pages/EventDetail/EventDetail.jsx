@@ -6,6 +6,7 @@ import Icon from "../../components/Icon";
 import { ThemeContext } from "../../ThemeContext";
 import Swal from 'sweetalert2';
 import BackToTopBtn from "../../components/BackToTopBtn/BackToTopBtn";
+import { fetchEventById } from "../../api/events";
 
 
 const defaultImageUrl =
@@ -25,20 +26,32 @@ const EventDetail = ({ onDeleteEvent }) => {
   const todayStr = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
-    const fetchEvent = async () => {
-      try {
-        const res = await fetch(`http://localhost:3001/events/${id}`);
-        if (!res.ok) throw new Error("Event not found");
-        const data = await res.json();
-        setEvent(data);
-        setEditedEvent(data);
-        fetchWeather(data.location);
-      } catch (err) {
-        console.error("Error loading event:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+     const fetchEvent = async () => {
+    try {
+      const data = await fetchEventById(id);
+      setEvent(data);
+      setEditedEvent(data);
+      if (data) fetchWeather(data.location);
+    } catch (err) {
+      console.error("Error loading event:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+    // const fetchEvent = async () => {
+    //   try {
+    //     const res = await fetch(`http://localhost:3001/events/${id}`);
+    //     if (!res.ok) throw new Error("Event not found");
+    //     const data = await res.json();
+    //     setEvent(data);
+    //     setEditedEvent(data);
+    //     fetchWeather(data.location);
+    //   } catch (err) {
+    //     console.error("Error loading event:", err);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
 
     const fetchWeather = async (location) => {
       try {
