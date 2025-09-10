@@ -1,5 +1,5 @@
 import useAxios from "./hooks/useAxios";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import useSpinningFavicon from "./hooks/useSpinningFavicon";
 import { useState, useEffect } from "react";
 import Home from "./pages/Home/Home";
@@ -30,7 +30,6 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
           <Route index element={<Home />} />
@@ -52,7 +51,6 @@ const App = () => {
           <Route path="/about" element={<About />} />
         </Route>
       </Routes>
-    </BrowserRouter>
   );
 };
 
