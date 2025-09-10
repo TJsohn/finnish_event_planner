@@ -1,14 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import compression from 'vite-plugin-compression';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import compression from "vite-plugin-compression";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    compression(),
-  ],
+  base: "/finnish_event_planner/",
+  plugins: [react(), compression()],
   build: {
-    minify: 'esbuild',
+    minify: "esbuild",
   },
   server: {
     watch: {
