@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import { useAnimatedText } from '../../hooks/useAnimatedText';
 import { useBlinkEffect } from '../../hooks/useBlinkEffect';
@@ -40,7 +40,7 @@ function Home() {
     <div className={styles.home}>
       {isMobile ? (
         <img
-          src="/image-background.jpg"
+          src="/finnish_event_planner/image-background.jpg"
           loading="lazy"
           alt="Mobile background"
           className={styles.video}
@@ -53,9 +53,9 @@ function Home() {
           loop
           playsInline
           preload="auto"
-          poster="/image-background.jpg"
+          poster="/finnish_event_planner/image-background.jpg"
         >
-          <source src="/video-background.webm" type="video/webm" />
+          <source src="/finnish_event_planner/video-background.webm" type="video/webm" />
         </video>
       )}
 
