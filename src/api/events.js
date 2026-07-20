@@ -1,27 +1,25 @@
 const isProduction = import.meta.env.MODE === "production";
 
+export async function fetchEvents() {
+  if (isProduction) {
+    // 배포 환경: public/events.json 파일을 static으로 로드
+    const res = await fetch(`${import.meta.env.BASE_URL}events.json`);
+    if (!res.ok) throw new Error("Failed to fetch events");
+    return res.json();
+  } else {
+    const res = await fetch("http://localhost:3001/events");
+    if (!res.ok) throw new Error("Failed to fetch events");
+    return res.json();
+  }
+}
+
 export async function fetchEventById(id) {
   if (isProduction) {
-    // Static/mock data for production
-    const events = [
-      {
-        id: "1",
-        title: "Sample Event",
-        startDate: "2025-06-12",
-        endDate: "2025-06-12",
-        startTime: "10:00",
-        endTime: "12:00",
-        location: "Helsinki",
-        address: "Main Street 1",
-        category: "music",
-        description: "A fun music event.",
-        imageUrl: "",
-      },
-      // ...add more events as needed
-    ];
-    return events.find((e) => e.id === id);
+    const res = await fetch(`${import.meta.env.BASE_URL}events.json`);
+    if (!res.ok) throw new Error("Event not found");
+    const events = await res.json();
+    return events.find((e) => e.id === String(id));
   } else {
-    // Fetch from local API in development
     const res = await fetch(`http://localhost:3001/events/${id}`);
     if (!res.ok) throw new Error("Event not found");
     return res.json();
