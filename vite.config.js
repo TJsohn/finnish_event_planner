@@ -7,8 +7,6 @@ export default defineConfig({
   plugins: [react(), compression()],
   build: {
     minify: "esbuild",
-  },
-  server: {
     watch: {
       usePolling: true,
       interval: 100,
