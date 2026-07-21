@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const useSpinningFavicon = (
-  src = "/logo-flower.svg",
+  src = `${import.meta.env.BASE_URL}logo-flower.svg`,
   size = 32,
   speed = 0.05
 ) => {
