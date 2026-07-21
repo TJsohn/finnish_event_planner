@@ -2,7 +2,6 @@ const isProduction = import.meta.env.MODE === "production";
 
 export async function fetchEvents() {
   if (isProduction) {
-    // 배포 환경: public/events.json 파일을 static으로 로드
     const res = await fetch(`${import.meta.env.BASE_URL}events.json`);
     if (!res.ok) throw new Error("Failed to fetch events");
     return res.json();
@@ -18,7 +17,7 @@ export async function fetchEventById(id) {
     const res = await fetch(`${import.meta.env.BASE_URL}events.json`);
     if (!res.ok) throw new Error("Event not found");
     const events = await res.json();
-    return events.find((e) => e.id === String(id));
+    return events.find((e) => String(e.id) === String(id));
   } else {
     const res = await fetch(`http://localhost:3001/events/${id}`);
     if (!res.ok) throw new Error("Event not found");
